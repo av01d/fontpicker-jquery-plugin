@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.3] - 2020-02-26
+### Fixed
+- Fixed some CSS issues.
+- Throw an error if `show` or `hide` methods are called on a destroyed instance.
+
 ## [0.2] - 2020-02-26
 ### Changed
 - Added `parentElement` configuration option

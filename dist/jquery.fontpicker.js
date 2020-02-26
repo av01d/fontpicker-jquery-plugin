@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020 Arjan Haverkamp
  * MIT Licensed
- * @version 0.2 - 2020-02-26
+ * @version 0.3 - 2020-02-26
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -5724,6 +5724,9 @@
 				 */
 				show: function() {
 					var el = $(this).data('plugin_' + pluginName);
+					if (!el.$select) {
+						throw new Error('jquery.'+pluginName+': Cannot show, as I\'ve been destroyed.');
+					}
 					el.toggleModal('show');
 				},
 
@@ -5732,6 +5735,9 @@
 				 */
 				hide: function() {
 					var el = $(this).data('plugin_' + pluginName);
+					if (!el.$select) {
+						throw new Error('jquery.'+pluginName+': Cannot hide, as I\'ve been destroyed.');
+					}
 					el.toggleModal('hide');
 				},
 
@@ -5745,6 +5751,7 @@
 					el.$element.remove();
 					el.$original.off('setFont');
 					el.$original.show();
+					el.$select = el.$element = el.$original = el.$modal = null;
 					$(el).removeData('plugin_' + pluginName);
 				}
 			}; // End prototype
@@ -5762,7 +5769,7 @@
 					returnVal = $.data(this, 'plugin_' + pluginName)[methodName].apply(this, args);
 				}
 				else {
-					throw new Error('Method ' +  methodName + ' does not exist on jQuery.' + pluginName);
+					throw new Error('jquery.'+pluginName+': Method ' +  methodName + ' does not exist.');
 				}
 			});
 
