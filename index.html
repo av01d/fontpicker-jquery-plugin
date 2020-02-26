@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>jQuery Fontpicker Plugin Example</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/github.min.css">
+	<link rel="stylesheet" type="text/css" href="dist/jquery.fontpicker.css">
+	<style>
+		body {
+			background-color: #fff;
+			color: #000;
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+		}
+
+		p {
+			line-height: 1.4em;
+		}
+
+		.btn {
+			background-color: #4caf50;
+			color: #fff;
+			padding: 5px 10px;
+			text-align: center;
+			display: inline-block;
+			font-size: 16px;
+			border-radius: 5px;
+			border: 1px solid #080;
+			margin: 2px 0;
+			cursor: pointer;
+		}
+
+		.btn-link {
+			font-weight: 400;
+			color: #00bc8c;
+  			text-decoration: none;
+  			border: none;
+  			padding: 0;
+  			background: none;
+  			color: #00f;
+  			font-size: 14px;
+		}
+
+		tt {
+			background-color: #eff0f1;
+			padding: 4px;
+		}
+
+		.example > div {
+			margin-top: 15px;
+		}
+
+		@media (min-width: 768px) {
+			.example {
+				display: flex;
+			}
+			.example > div, .example > pre {
+				flex: 1;
+				margin: 0 10px 0 0;
+			}
+		}
+
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="dist/jquery.fontpicker.js"></script>
+	<script>
+
+	function applyFont(element, fontSpec) {
+		console.log('You selected font: ' + fontSpec);
+
+		// Split font into family and weight/style
+		var tmp = fontSpec.split(':'),
+			family = tmp[0],
+			variant = tmp[1] || '400',
+			weight = parseInt(variant,10),
+			italic = /i$/.test(variant);
+
+		// Set selected font on paragraphs
+		var css = {
+			fontFamily: "'" + family + "'",
+			fontWeight: weight,
+			fontStyle: italic ? 'italic' : 'normal'
+		};
+
+		$(element).css(css);
+	}
+
+	$(function() {
+		// Highlight code samples:
+		hljs.configure({
+			tabReplace: '   ', // 3 spaces
+		});
+		$('pre code').each(function() {
+			hljs.highlightBlock(this);
+		});
+	});
+
+	</script>
+</head>
+<body>
+
+	<h1>jQuery Fontpicker Plugin Example</h1>
+
+	<!-- Example 1 -->
+	<h2>Example 1: Fully default</h2>
+	<p id="sample1">
+	Default configuration. Dropdown shows a list of default system fonts, as well as all available Google fonts.
+	Users can select both a font-family <i>and</i> a font-variant (font weight- and style).
+	</p>
+	<div class="example">
+		<pre><code class="html">
+&lt;input id="font1" type="text"&gt;
+
+&lt;script&gt;
+$('#font1')
+.fontpicker()
+.on('change', function() {
+	applyFont('#sample1', this.value);
+});
+&lt;/script&gt;
+		</code></pre>
+		<div>
+			<input id="font1" type="text">
+			<br>
+
+			<button class="btn" type="button" onclick="$('#font1').val('Geo:400').trigger('change')">Select <i>Geo 400</i> font</button>
+			<button class="btn" type="button" onclick="$('#font1').val('Open Sans:800').trigger('change')">Select <i>Opens Sans 800</i> font</button>
+			<button class="btn" type="button" onclick="$('#font1').val('Tahoma').trigger('change')">Select <i>Tahoma</i> font</button>
+			<br>
+			API: <button class="btn btn-link" onclick="$('#font1').fontpicker('show')">Show</button> -
+			<button class="btn btn-link" onclick="$('#font1').fontpicker('destroy')">Destroy</button>
+
+			<script>
+				$('#font1')
+				.fontpicker()
+				.on('change', function() {
+					applyFont('#sample1', this.value);
+				});
+			</script>
+		</div>
+	</div>
+	<!-- /Example 1 -->
+
+	<!-- Example 2 -->
+	<h2>Example 2: Default system fonts, custom Google fonts, disabled variant-selection</h2>
+	<p id="sample2">
+	The dropdown shows the default list of system fonts. The list of Google fonts the user can choose from is customized.
+	Users can only select a font-family, font-variant selection is disabled (<tt>variants: false</tt>).
+	</p>
+	<div class="example">
+		<pre><code class="html">
+&lt;input id="font2" type="text" value="Indie Flower"&gt;
+
+&lt;script&gt;
+$('#font2').fontpicker({
+	variants: false,
+	googleFonts: [
+		'Abel', 'Advent Pro', 'Changa', 'Eczar', 'Gloria Hallelujah', 'Indie Flower',
+		'Press Start 2P', 'Slackey', 'Yeon Sung'
+	],
+	localFonts: false
+})
+.on('change', function() {
+	applyFont('#sample2', this.value);
+});
+&lt;/script&gt;
+		</code></pre>
+		<div>
+			<input id="font2" type="text" value="Indie Flower">
+			<script>
+				$('#font2').fontpicker({
+					variants: false,
+					googleFonts: [
+						'Abel', 'Advent Pro', 'Changa', 'Eczar', 'Gloria Hallelujah', 'Indie Flower',
+						'Press Start 2P', 'Slackey', 'Yeon Sung'
+					],
+					localFonts: false
+				})
+				.on('change', function() {
+					applyFont('#sample2', this.value);
+				});
+			</script>
+		</div>
+	</div>
+	<!-- Example 2 -->
+
+	<!-- Example 3 -->
+	<h2>Example 3: Custom local fonts, no Google fonts</h2>
+	<p id="sample3">
+	The dropdown shows a list of system fonts (Arial, Georgia, Times New Roman and Verdana), as well as three custom fonts (Action Man, Bauer, Bubble).<br>
+	Google fonts are disabled (<tt>googleFonts: false</tt>).<br>
+
+	The local font files have to be in Woff format (for best compatibility with as many	browsers as possible), and they should all be put in a single folder, under the
+	document root folder of your site. Something like <tt>/fonts</tt> makes sense. Provide the path to this folder as the <tt>localFontsUrl</tt> configuration parameter.
+	<br>
+	In this example, there are 3 files in the <tt>htdocs/fonts</tt> folder: <tt>Action Man.woff, Bauer.woff, Bubble.woff</tt>.
+	<br>
+	Make sure the font files are named the same as the font names you provide in the	<tt>localFonts</tt> object.
+	</p>
+
+	<div class="example">
+		<pre><code class="html">
+&lt;input id="font3" type="text"&gt;
+
+&lt;script&gt;
+var localFonts = {
+	"Arial": {
+		"category": "sans-serif",
+		"variants": "400,400i,600,600i"
+	},
+	"Georgia": {
+		"category": "serif",
+		"variants": "400,400i,600,600i"
+	},
+	"Times New Roman": {
+		"category": "serif",
+		"variants": "400,400i,600,600i"
+	},
+	"Verdana": {
+		"category": "sans-serif",
+		"variants": "400,400i,600,600i",
+	},
+
+	"Action Man": {},
+	"Bauer": {
+		"category": "display",
+		"variants": "400,400i,600,600i",
+		"subsets": "latin-ext,latin"
+	},
+	"Bubble": {
+		"category": "display",
+		"variants": "400,400i,600,600i",
+		"subsets": "latin-ext,latin"
+	}
+};
+
+$('#font3').fontpicker({
+	localFontsUrl: 'fonts/', // End with a slash!
+	localFonts: localFonts,
+	googleFonts: false
+})
+.on('change', function() {
+	applyFont('#sample3', this.value);
+});
+&lt;/script&gt;
+		</code></pre>
+		<div>
+			<input id="font3" type="text">
+			<script>
+				var localFonts = {
+					"Arial": {
+						"category": "sans-serif",
+						"variants": "400,400i,600,600i"
+					},
+					"Georgia": {
+						"category": "serif",
+						"variants": "400,400i,600,600i"
+					},
+					"Times New Roman": {
+						"category": "serif",
+						"variants": "400,400i,600,600i"
+					},
+					"Verdana": {
+						"category": "sans-serif",
+						"variants": "400,400i,600,600i",
+					},
+
+					"Action Man": {},
+					"Bauer": {
+						"category": "display",
+						"variants": "400,400i,600,600i",
+						"subsets": "latin-ext,latin"
+					},
+					"Bubble": {
+						"category": "display",
+						"variants": "400,400i,600,600i",
+						"subsets": "latin-ext,latin"
+					}
+				};
+
+				$('#font3').fontpicker({
+					localFontsUrl: 'fonts/', // End with a slash!
+					localFonts: localFonts,
+					googleFonts: false
+				})
+				.on('change', function() {
+					applyFont('#sample3', this.value);
+				});
+		</script>
+		</div>
+	</div>
+	<!-- /Example 3 -->
+
+</body>
+</html>
