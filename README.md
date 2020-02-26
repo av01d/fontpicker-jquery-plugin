@@ -242,6 +242,13 @@ Example:
 
 Path to folder where local fonts are stored (in .woff format). Default: `/fonts/`. *Make sure to end with a slash!*
 
+### parentElement
+
+- Type: `String` or `jQuery object`
+- Default 'body'
+
+Parent element to attach the font picker to. The default `body` should suffice in pretty much all cases. Only tinker with this if you know what you're doing.
+
 [⬆ back to top](#table-of-contents)
 
 ## Methods

@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020 Arjan Haverkamp
  * MIT Licensed
- * @version 0.1 - 2020-02-26
+ * @version 0.2 - 2020-02-26
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -5032,12 +5032,12 @@
 		};
 
 		var settings = {
-
-			lang: 'en',
+			lang: 'en', // Interface language
 			variants: true, // Whether or not to show font variants
 			lookahead: 0, // Either false, 0 or a positive integer
 			debug: false, // Debugging shows some useful info in console
-			localFontsUrl: '/fonts/',
+			localFontsUrl: '/fonts/', // Where .woff files (for local fonts) reside
+			parentElement: 'body', // What element to attach the fontpicker to
 
 			localFonts: {// Default: web safe fonts available on all platforms
 				"Arial": {
@@ -5440,7 +5440,7 @@
 
 						this.$modal.css('display','none');
 						$('.fp-modal-backdrop', this.$element).remove();
-						$('body').removeClass('fp-modal-open');
+						$(this.options.parentElement).removeClass('fp-modal-open');
 					}
 					else {
 						// Show modal
@@ -5448,7 +5448,7 @@
 
 						var fontSpec = this.$original.val();
 
-						$('body').addClass('fp-modal-open'); // TODO: root-element (needs to be configurable)
+						$(this.options.parentElement).addClass('fp-modal-open');
 
 						this.$element.append(
 							$('<div class="fp-modal-backdrop">')
@@ -5712,7 +5712,7 @@
 
 					fontSpec && self.applyFontToOriginalInput(fontSpec);
 
-					$('body').append(this.$element); // TODO: Make 'body' configurable
+					$(this.options.parentElement).append(this.$element);
 				},
 
 				//
