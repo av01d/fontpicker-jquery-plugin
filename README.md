@@ -19,6 +19,7 @@ This plugin is the successor of the [Fontselect jQuery plugin](https://github.co
 ## Features
 
 - Quickly preview and select any Google font family.
+- Lazy loading of fonts as they come into view (uses [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API))
 - Optionally present system and local fonts (`.woff`) as well.
 - Optionally choose font weight and font style.
 - Find fonts by name, language and category (serif, sans-serif, display, handwriting, monospace).
@@ -66,7 +67,7 @@ $('input.fonts').fontpicker([options]);
 $('input.fonts').fontpicker({
    lang: 'en',
    variants: true,
-   lookahead: 2,
+   lazyLoad: true,
    googleFonts: 'Alegreya,Boogaloo,Coiny,Dosis,Emilys Candy,Faster One,Galindo'.split(','),
    localFonts: {
       "Arial": {
@@ -137,15 +138,14 @@ If you need a translation in another language: take a look at the `dictionaries`
 With `variants: true`, users can not only select a font family, but the variant (font weight and font style) of it as well, if applicable. Many fonts in the Google Repository have multiple variants (multiple font weights, normal and italic styles).
 In this case, the `input` element will have a value that consists of the chosen font, followed by the font-weight and an italics indicator (see [Example](#example)).
 
-### lookahead
+### lazyLoad
 
-- Type: `Number`, `Boolean`
-- Default: 0
-- Options: Any positive number, or `false`
+- Type: `Boolean`
+- Default: `true`
 
-A number of fonts to preload ahead in the list. Default: `0`. Use `false` to disable fonts preloading.
-When the user scrolls the font list, each font is rendered in its own font family. This is accomplished by loading the external font on demand, as soon as the font becomes visible in the list. The `lookahead` indicates how many not-yet-visible fonts will be loaded in advance.
-Use `false` to disable preloading of fonts: fonts in the list will no longer be rendered in their own font family.
+When the user scrolls the font list, each font is rendered in its own font family. This is accomplished by loading the external font on demand, as soon as the font becomes visible in the list (using an *Intersection Observer*).
+The `lazyLoad` option enables or disables this functionality.
+If disabled, fonts in the list will no longer be rendered in their own font family.
 
 ### googleFonts
 
@@ -342,6 +342,8 @@ The Fontpicker plugin is used (among others) on the following websites:
 - [PhotoFilters.com](https://www.photofilters.com/)
 - [PhotoResizer.com](https://www.photoresizer.com/)
 - [PrintScreenshot.com](https://www.printscreenshot.com/)
+
+[⬆ back to top](#table-of-contents)
 
 ## License
 

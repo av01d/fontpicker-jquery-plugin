@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020 Arjan Haverkamp
  * MIT Licensed
- * @version 0.3 - 2020-02-26
+ * @version 0.4 - 2020-02-27
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -48,7 +48,6 @@
 
 .fp-favorite {
 	display: inline-block;
-	flex: 1;
 	width: 24px;
 	height: 24px;
 	margin-right: 2px;
@@ -89,7 +88,6 @@
 }
 
 .font-picker .fp-btn.apply {
-	flex: 1;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 

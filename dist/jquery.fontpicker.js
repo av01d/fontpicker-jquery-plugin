@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020 Arjan Haverkamp
  * MIT Licensed
- * @version 0.3 - 2020-02-26
+ * @version 0.4 - 2020-02-27
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -47,6 +47,7 @@
 	var googleFontCats = ['serif', 'sans-serif', 'display', 'handwriting', 'monospace'];
 
 	$.fn.fontpicker = function(options) {
+
 		var __scrollIntoViewIfNeeded = function(elem) {
 			var container = elem.parentElement;
 			var rectElem = elem.getBoundingClientRect(), rectContainer = container.getBoundingClientRect();
@@ -5034,7 +5035,7 @@
 		var settings = {
 			lang: 'en', // Interface language
 			variants: true, // Whether or not to show font variants
-			lookahead: 0, // Either false, 0 or a positive integer
+			lazyLoad: true, // Whether or not to lazy load fonts
 			debug: false, // Debugging shows some useful info in console
 			localFontsUrl: '/fonts/', // Where .woff files (for local fonts) reside
 			parentElement: 'body', // What element to attach the fontpicker to
@@ -5392,29 +5393,25 @@
 
 				/**
 				 * Automatically load fonts as they come in to view.
-				 * The lookahead can be controlled via options.lookahead
-				 * If options.lookahead === false, fonts will not load automatically.
 				 */
-				scrollSpy: function() {
-					var self = this,
-						cb = this.$results[0].getBoundingClientRect(),
-						top = cb.top,
-						bottom = cb.top + cb.height;
+				lazyLoad: function() {
+					if (!window.IntersectionObserver) { return; }
 
-					if (this.options.lookahead > 0) {
-						bottom += $('li:not(.fp-divider):visible:first', this.$results).height() * this.options.lookahead;
-					}
+					var self = this, $li;
+
+					var observer = new IntersectionObserver(function(lis) {
+						[].forEach.call(lis, function(li) {
+							if (li.intersectionRatio > 0) {
+								observer.unobserve(li.target); // Load only once per li
+								$li = $(li.target);
+								self.loadFont($li.data('font-type'), $li.data('font-family'));
+								$li.css('fontFamily', "'" + $li.data('font-family') + "'");
+							}
+						});
+					});
 
 					$('li:not(.fp-divider):visible', this.$results).each(function() {
-						var box = this.getBoundingClientRect();
-						var ft = box.top + top - cb.top;
-						var fb = ft + box.height;
-						var $li = $(this);
-
-						if ((fb >= top) && (ft <= bottom)){
-							self.loadFont($li.data('font-type'), $li.data('font-family'));
-							$li.css('fontFamily', "'" + $li.data('font-family') + "'");
-						}
+						observer.observe(this);
 					});
 				},
 
@@ -5432,10 +5429,6 @@
 
 					if ('hide' == state) {
 						// Hide modal
-						if (false !== this.options.lookahead) {
-							clearInterval(this.lookaheadInterval);
-						}
-
 						$('.fp-fav', this.$results).remove();
 
 						this.$modal.css('display','none');
@@ -5460,11 +5453,7 @@
 
 						this.$modal.css('display','flex');
 
-						if (false !== this.options.lookahead) {
-							// Lookahead enabled, init scroll spy
-							self.scrollSpy();
-							self.lookaheadInterval = setInterval(function() { self.scrollSpy() }, 500);
-						}
+						this.options.lazyLoad && this.lazyLoad();
 
 						// Re-list favorites:
 						var favs = __cookie('favs');
