@@ -5735,6 +5735,9 @@
 				 */
 				destroy: function() {
 					var el = $(this).data('plugin_' + pluginName);
+					if (!el.$select) {
+						throw new Error('jquery.'+pluginName+': Cannot destroy, as I\'ve been destroyed already.');
+					}
 					el.toggleModal('hide');
 					el.$select.remove();
 					el.$element.remove();
