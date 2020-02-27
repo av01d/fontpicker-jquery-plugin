@@ -31,7 +31,6 @@
 	color: #444;
 	background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23303030' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px;
 	-webkit-user-select: none;
-	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 	font-size: 16px;
@@ -212,6 +211,8 @@
 	overflow-y: auto;
 	margin: 0;
 	padding: 0;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
 	margin-top: -1px;
 	outline: none;
@@ -254,6 +255,8 @@
 }
 
 .font-picker .fp-pill {
+	-webkit-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
 	display: inline-block;
 	padding: 2px 6px;
