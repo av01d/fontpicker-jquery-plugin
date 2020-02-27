@@ -13,6 +13,7 @@ This plugin is the successor of the [Fontselect jQuery plugin](https://github.co
 - [Options](#options)
 - [Methods](#methods)
 - [Events](#events)
+- [Real World Examples](#real-world-examples)
 - [License](#license)
 
 ## Features
@@ -245,9 +246,16 @@ Path to folder where local fonts are stored (in .woff format). Default: `/fonts/
 ### parentElement
 
 - Type: `String` or `jQuery object`
-- Default 'body'
+- Default: `'body'`
 
-Parent element to attach the font picker to. The default `body` should suffice in pretty much all cases. Only tinker with this if you know what you're doing.
+Parent element (jQuery selector/element) to attach the font picker to. The default `body` should suffice in pretty much all cases. Only tinker with this if you know what you're doing.
+
+### debug
+
+- Type: `Boolean`
+- Default: `false`
+
+When enabled, the plugin shows info about fonts being loaded in the console.
 
 [⬆ back to top](#table-of-contents)
 
@@ -326,10 +334,20 @@ $('#font').fontpicker().on('change', function() {
 
 [⬆ back to top](#table-of-contents)
 
+## Real World Examples
+
+The Fontpicker plugin is used (among others) on the following websites:
+
+- [PhotoEditor.com](https://www.photoeditor.com/)
+- [PhotoFilters.com](https://www.photofilters.com/)
+- [PhotoResizer.com](https://www.photoresizer.com/)
+- [PrintScreenshot.com](https://www.printscreenshot.com/)
 
 ## License
 
 This plugin is released under the MIT license. It is simple and easy to understand and places almost no restrictions on what you can do with the code.
 [More Information](http://en.wikipedia.org/wiki/MIT_License)
+
+The development of this plugin was funded by [Zygomatic](https://www.zygomatic.nl/).
 
 [⬆ back to top](#table-of-contents)
