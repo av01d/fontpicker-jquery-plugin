@@ -39,6 +39,8 @@ This plugin is the successor of the [Fontselect jQuery plugin](https://github.co
 
 ### Installation
 
+This is a jQuery plugin, so... make sure you load jQuery before you include this plugin.
+
 ```html
 <link href="/path/to/dist/jquery.fontpicker.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
