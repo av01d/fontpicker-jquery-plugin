@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020 Arjan Haverkamp
  * MIT Licensed
- * @version 0.4 - 2020-02-27
+ * @version 0.5 - 2020-02-28
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -5214,7 +5214,7 @@
 					var $li = $(el), self = this;
 					var fontType = $li.data('font-type');
 					var fontFamily = $li.data('font-family');
-					var	italic = $li.data('font-italic') || false;
+					var italic = $li.data('font-italic') || false;
 					var weight = $li.data('font-weight') || 400;
 
 					if (this.fontActive && this.fontActive == fontFamily) { return; }
@@ -5410,7 +5410,7 @@
 						});
 					});
 
-					$('li:not(.fp-divider):visible', this.$results).each(function() {
+					$('li:not(.fp-divider)', this.$results).each(function() {
 						observer.observe(this);
 					});
 				},
@@ -5453,8 +5453,6 @@
 
 						this.$modal.css('display','flex');
 
-						this.options.lazyLoad && this.lazyLoad();
-
 						// Re-list favorites:
 						var favs = __cookie('favs');
 						this.favFonts = favs ? favs.split(',') : [];
@@ -5475,6 +5473,7 @@
 							this.$results.scrollTop(0);
 						}
 
+						this.options.lazyLoad && this.lazyLoad();
 						this.$results.focus(); // Make keyboard work
 					}
 				},
@@ -5524,7 +5523,7 @@
 
 					this.$filter = $('<div class="fp-filter">');
 
-					this.$search = $('<input>', {'class':'fp-search',type:'text', placeholder:this.dictionary['search']}).on('keyup', function() {
+					this.$search = $('<input>', {'class':'fp-search', type:'search', placeholder:this.dictionary['search'], spellcheck:false}).on('keyup', function() {
 						self.applyFilter();
 					});
 

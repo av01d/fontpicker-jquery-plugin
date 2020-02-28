@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.5] - 2020-02-28
+### Fixed
+- Favorite fonts weren't rendered in their respective font families when lazy loading was enabled
+
 ## [0.4] - 2020-02-27
 ### Changed
 - Added `lazyLoad` option, allowing you to disable lazy loading of fonts.
