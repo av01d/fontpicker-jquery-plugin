@@ -252,6 +252,13 @@ Path to folder where local fonts are stored (in .woff format). Default: `/fonts/
 
 Parent element (jQuery selector/element) to attach the font picker to. The default `body` should suffice in pretty much all cases. Only tinker with this if you know what you're doing.
 
+If you want to use the Fontpicker inside a Bootstrap modal, you need to attach it to the modal instead of the body, to prevent keyboard/mouse focus issues. For example:
+```
+$('#font').fontpicker({
+   parentElement: '#myModal'
+});
+```
+
 ### debug
 
 - Type: `Boolean`
@@ -344,6 +351,7 @@ The Fontpicker plugin is used (among others) on the following websites:
 - [PhotoFilters.com](https://www.photofilters.com/)
 - [PhotoResizer.com](https://www.photoresizer.com/)
 - [PrintScreenshot.com](https://www.printscreenshot.com/)
+- [PhotoCollage.com](https://www.photocollage.com/)
 
 [⬆ back to top](#table-of-contents)
 
