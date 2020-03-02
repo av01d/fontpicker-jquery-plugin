@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020 Arjan Haverkamp
  * MIT Licensed
- * @version 0.5 - 2020-02-28
+ * @version 0.6 - 2020-03-02
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -5035,10 +5035,11 @@
 		var settings = {
 			lang: 'en', // Interface language
 			variants: true, // Whether or not to show font variants
+			nrRecents: 3, // How many recently picked fonts to remember (shown in 'Favorite fonts' section)
 			lazyLoad: true, // Whether or not to lazy load fonts
 			debug: false, // Debugging shows some useful info in console
 			localFontsUrl: '/fonts/', // Where .woff files (for local fonts) reside
-			parentElement: 'body', // What element to attach the fontpicker to
+			parentElement: 'body', // What element to attach the Fontpicker to
 
 			localFonts: {// Default: web safe fonts available on all platforms
 				"Arial": {
@@ -5089,9 +5090,14 @@
 					options.googleFonts = __googleFonts;
 				}
 
-				if (!options.localFonts) { options.localFonts = []; }
+				if (!options.localFonts) {
+					options.localFonts = [];
+				}
 
-				if (!dictionaries[options.lang]) { options.lang = 'en'; }
+				if (!dictionaries[options.lang]) {
+					options.lang = 'en';
+				}
+
 				this.dictionary = dictionaries[options.lang];
 
 				this.allFonts = {'google':options.googleFonts, 'local':options.localFonts};
@@ -5211,11 +5217,13 @@
 				 * @param {object} el Element that received the event.
 				 */
 				click: function(e, el) {
-					var $li = $(el), self = this;
-					var fontType = $li.data('font-type');
-					var fontFamily = $li.data('font-family');
-					var italic = $li.data('font-italic') || false;
-					var weight = $li.data('font-weight') || 400;
+					var $li = $(el), self = this,
+						fontType = $li.data('font-type'),
+						fontFamily = $li.data('font-family'),
+						italic = $li.data('font-italic') || false,
+						weight = $li.data('font-weight') || 400,
+						favorites = __cookie('favs'),
+						favoriteFonts = favorites ? favorites.split(',') : [];
 
 					if (this.fontActive && this.fontActive == fontFamily) { return; }
 					this.fontActive = fontFamily;
@@ -5224,29 +5232,29 @@
 
 					$li.addClass('fp-active');
 
-					var $btns = $('<div class="fp-btns">');
-
-					var isFav = self.favFonts.indexOf(fontType + ':' + fontFamily) != -1;
+					var $btns = $('<div class="fp-btns">'),
+						isFav = favoriteFonts.indexOf(fontType + ':' + fontFamily) != -1;
 
 					$btns.append(
 						$('<span class="fp-favorite' + (isFav ? ' checked' : '') + '"></span>')
 						.on('click', function(e) {
 							e.stopPropagation();
-							var idx = self.favFonts.indexOf(fontType + ':' + fontFamily);
+
+							var idx = favoriteFonts.indexOf(fontType + ':' + fontFamily);
 							if ($(this).is('.checked')) {
 								// Remove from favs
 								if (idx != -1) {
-									self.favFonts.splice(idx, 1);
+									favoriteFonts.splice(idx, 1);
 								}
 							}
 							else {
 								// Add to favs
 								if (-1 == idx) {
-									self.favFonts.push(fontType + ':' + fontFamily);
+									favoriteFonts.push(fontType + ':' + fontFamily);
 								}
 							}
 							$(this).toggleClass('checked');
-							__cookie('favs', self.favFonts.join(','));
+							__cookie('favs', favoriteFonts.join(','));
 						}),
 
 						$('<button type="button" class="fp-btn apply">')
@@ -5270,16 +5278,30 @@
 
 							self.$original.val(value).change(); // Update original <input> element
 							self.toggleModal('hide');
+
+							// Save recent
+							if (!!self.options.nrRecents) {
+								var recents = __cookie('recents'),
+									recentFonts = recents ? recents.split(',') : [],
+									cookieVal = $li.data('font-type') + ':' + fontFamily;
+
+								if (recentFonts.indexOf(cookieVal) == -1) {
+									recentFonts.unshift(cookieVal);
+								}
+
+								recentFonts = recentFonts.slice(0,self.options.nrRecents); // Remember last X
+								__cookie('recents', recentFonts.join(','));
+							}
 						})
 					)
 					$btns.appendTo($li);
 
-					var font = this.allFonts[fontType][fontFamily];
-					var variants = font.variants ? font.variants.split(',') : [];
+					var font = this.allFonts[fontType][fontFamily],
+						variants = font.variants ? font.variants.split(',') : [];
 
 					if (this.options.variants && variants.length > 1) {
-						var $variants = $('<div class="fp-variants">');
-						var hasItalic = false;
+						var $variants = $('<div class="fp-variants">'),
+							hasItalic = false;
 
 						for (var v = 0; v < variants.length; v++) {
 							if (/i$/.test(variants[v])) {
@@ -5287,8 +5309,8 @@
 								continue;
 							}
 
-							let variant = variants[v];
-							let fontWeight = +variant.replace(/i$/,'');
+							let variant = variants[v],
+								fontWeight = +variant.replace(/i$/,'');
 
 							if (v > 0) {
 								$variants.append(' ');
@@ -5387,7 +5409,6 @@
 
 					this.$original.on('change', function(e) {
 						self.applyFontToOriginalInput(this.value);
-						//self.$original.val(this.value);
 					});
 				},
 
@@ -5439,7 +5460,7 @@
 						// Show modal
 						this.fontActive = null;
 
-						var fontSpec = this.$original.val();
+
 
 						$(this.options.parentElement).addClass('fp-modal-open');
 
@@ -5453,11 +5474,9 @@
 
 						this.$modal.css('display','flex');
 
-						// Re-list favorites:
-						var favs = __cookie('favs');
-						this.favFonts = favs ? favs.split(',') : [];
-						this.getFavorites(this.favFonts);
+						this.getFavorites(); // List favorites & recents
 
+						var fontSpec = this.$original.val();
 						if (fontSpec) {
 							var font = self.fontSpecToComponents(fontSpec),
 								$li = $("[data-font-family='" + font.family + "']", this.$results);
@@ -5498,10 +5517,10 @@
 
 					for (var c in this.allFonts) {
 						for (var f in this.allFonts[c]) {
-							var item = this.allFonts[c][f];
-							var langs = item.subsets ? item.subsets.split(',') : [];
-							var $li = $("li[data-font-family='" + f + "']", this.$results);
-							var cat = item.category || 'other';
+							var item = this.allFonts[c][f],
+								langs = item.subsets ? item.subsets.split(',') : [],
+								$li = $("li[data-font-family='" + f + "']", this.$results),
+								cat = item.category || 'other';
 
 							if ( ('' == lang || langs.indexOf(lang) != -1) &&
 								 (cats.indexOf(cat) != -1) &&
@@ -5519,26 +5538,39 @@
 				 * Construct filter UI.
 				 */
 				getFilterUI: function() {
-					var self = this;
+					var self = this,
+						$searchWrap = $('<div class="fp-search-wrap">');
 
 					this.$filter = $('<div class="fp-filter">');
 
-					this.$search = $('<input>', {'class':'fp-search', type:'search', placeholder:this.dictionary['search'], spellcheck:false}).on('keyup', function() {
+					// Search input
+					this.$search = $('<input>', {'class':'fp-search', type:'text', placeholder:this.dictionary['search'], spellcheck:false})
+					.on('keyup', function() {
 						self.applyFilter();
-					});
+					})
+					.appendTo($searchWrap);
 
+					// Clear button
+					$('<div class="fp-clear">')
+					.html('&times;')
+					.on('click', function() {
+						self.$search.val('').focus();
+						self.applyFilter();
+					})
+					.appendTo($searchWrap);
+
+					// Language pulldown
 					var opts = ['<option value="">' + this.dictionary['allLangs'] + '</option>'];
 					for (var l in googleFontLangs) {
 						opts.push('<option value="' + l + '">' + googleFontLangs[l] + '</option>');
 					}
-
 					this.$lang = $('<select class="fp-lang">').on('change', function() {
 						self.applyFilter();
 					}).html(opts.join(''));
 
 					this.$filter.append(
 						$('<div class="fp-row">').append(
-							this.$search,
+							$searchWrap,
 							this.$lang
 						)
 					);
@@ -5611,15 +5643,26 @@
 				},
 
 				/**
-				 * Construct list of favorited fonts
-				 *
-				 * @param {array} favFonts Array of favorite fonts, like: ['Arial:400', 'Pacifico:400']
+				 * Construct list of favorited and recently picked fonts
 				 */
-				getFavorites: function(favFonts) {
+				getFavorites: function() {
+					var favorites = __cookie('favs'),
+						recents = __cookie('recents'),
+						favoriteFonts = favorites ? favorites.split(',') : [],
+						recentFonts = (!!this.options.nrRecents && recents) ? recents.split(',') : [];
+
+					// Dedupe:
+					var fonts = recentFonts.slice(0);
+					for (var f = 0; f < favoriteFonts.length; f++) {
+						if (fonts.indexOf(favoriteFonts[f]) == -1) {
+							fonts.push(favoriteFonts[f]);
+						}
+					}
+
 					var frag = document.createDocumentFragment(), $li = null;
 
-					for (var f = 0; f < favFonts.length; f++) {
-						var tmp = favFonts[f].split(':'), fontType = tmp[0], fontFamily = tmp[1], font = this.allFonts[fontType][fontFamily];
+					for (var f = 0; f < fonts.length; f++) {
+						var tmp = fonts[f].split(':'), fontType = tmp[0], fontFamily = tmp[1], font = this.allFonts[fontType][fontFamily];
 						if (!font) { continue; }
 						$li = $('<li>', {'class':'fp-fav', 'data-font-type':fontType, 'data-font-family':fontFamily})
 						.html(fontFamily + (font.category ? ' <small>' + font.category + '</small>' : ''));
@@ -5636,9 +5679,8 @@
 				 * Setup HTML structure for the font picker.
 				 */
 				setupHtml: function() {
-					var self = this;
-
-					var fontSpec = this.$original.val();
+					var self = this,
+						fontSpec = this.$original.val();
 
 					this.$original.hide();
 

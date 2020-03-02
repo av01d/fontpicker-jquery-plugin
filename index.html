@@ -143,10 +143,12 @@ $('#font1')
 	<!-- /Example 1 -->
 
 	<!-- Example 2 -->
-	<h2>Example 2: Default system fonts, custom Google fonts, disabled variant-selection</h2>
+	<h2>Example 2: Default local fonts, custom Google fonts, disabled variant-selection</h2>
 	<p id="sample2">
-	The dropdown shows the default list of system fonts. The list of Google fonts the user can choose from is customized.
+	The dropdown shows the default list of local fonts. The list of Google fonts the user can choose from is customized.
 	Users can only select a font-family, font-variant selection is disabled (<tt>variants: false</tt>).
+	<br>
+	This Fontpicker will not remember last picked fonts (<tt>nrRecents: 0</tt>).
 	</p>
 	<div class="example">
 		<pre><code class="html">
@@ -155,6 +157,7 @@ $('#font1')
 &lt;script&gt;
 $('#font2').fontpicker({
 	variants: false,
+	nrRecents: 0,
 	googleFonts: [
 		'Abel', 'Advent Pro', 'Changa', 'Eczar', 'Gloria Hallelujah',
 		'Indie Flower', 'Press Start 2P', 'Slackey', 'Yeon Sung'
@@ -171,6 +174,7 @@ $('#font2').fontpicker({
 			<script>
 				$('#font2').fontpicker({
 					variants: false,
+					nrRecents: 1,
 					googleFonts: [
 						'Abel', 'Advent Pro', 'Changa', 'Eczar', 'Gloria Hallelujah',
 						'Indie Flower', 'Press Start 2P', 'Slackey', 'Yeon Sung'
@@ -196,7 +200,7 @@ $('#font2').fontpicker({
 	<br>
 	In this example, there are 3 files in the <tt>htdocs/fonts</tt> folder: <tt>Action Man.woff, Bauer.woff, Bubble.woff</tt>.
 	<br>
-	Make sure the font files are named the same as the font names you provide in the	<tt>localFonts</tt> object.
+	Make sure the font files are named the same as the font names you provide in the <tt>localFonts</tt> object.
 	</p>
 
 	<div class="example">

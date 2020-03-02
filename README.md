@@ -23,7 +23,8 @@ This plugin is the successor of the [Fontselect jQuery plugin](https://github.co
 - Optionally present system and local fonts (`.woff`) as well.
 - Optionally choose font weight and font style.
 - Find fonts by name, language and category (serif, sans-serif, display, handwriting, monospace).
-- Users can favor fonts (favorites are stored in a cookie), allowing them to quickly find them a next time.
+- Users can favor fonts (stored in a cookie). Favored fonts are listed in the *Favorite fonts* section upon re-opening the picker.
+- Remembers users last picked fonts, listing them on top in the *Favorite fonts* section upon re-opening the picker.
 - Editable sample text (default: *The quick brown fox jumps over the lazy dog*)
 - Keyboard navigation
   - `Up/Down` cursor keys navigate through options.
@@ -70,6 +71,7 @@ $('input.fonts').fontpicker({
    lang: 'en',
    variants: true,
    lazyLoad: true,
+   nrRecents: 3,
    googleFonts: 'Alegreya,Boogaloo,Coiny,Dosis,Emilys Candy,Faster One,Galindo'.split(','),
    localFonts: {
       "Arial": {
@@ -139,6 +141,14 @@ If you need a translation in another language: take a look at the `dictionaries`
 
 With `variants: true`, users can not only select a font family, but the variant (font weight and font style) of it as well, if applicable. Many fonts in the Google Repository have multiple variants (multiple font weights, normal and italic styles).
 In this case, the `input` element will have a value that consists of the chosen font, followed by the font-weight and an italics indicator (see [Example](#example)).
+
+### nrRecents
+
+- Type: `Number`
+- Default: `3`
+
+Te fontpicker component lists the last X fonts the user picked earlier first, in the *Favorite fonts* section.
+The `nrRecents` option defines how many last-picked fonts to remember. Use `0` to not remember any at all.
 
 ### lazyLoad
 

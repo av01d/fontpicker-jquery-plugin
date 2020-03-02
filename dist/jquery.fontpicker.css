@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020 Arjan Haverkamp
  * MIT Licensed
- * @version 0.5 - 2020-02-28
+ * @version 0.6 - 2020-03-02
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -159,6 +159,29 @@
 	color: #495057;
 	box-shadow: inset 0 1px 3px rgba(0,0,0,.06);
 	border-radius: .1875rem;
+}
+
+.font-picker .fp-search:focus {
+	box-shadow: 0 0 0 2px #bfdeff;
+}
+
+.font-picker .fp-search-wrap {
+	position: relative;
+}
+
+.font-picker .fp-clear {
+	position: absolute;
+	top: 6px;
+	right: 4px;
+	width: 15px;
+	height: 15px;
+	background-color: #c8c8c8;
+	font-size: 16px;
+	line-height: 13px;
+	border-radius: 50%;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
 }
 
 .font-picker .fp-lang {

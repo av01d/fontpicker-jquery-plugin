@@ -4,14 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.6] - 2020-03-02
+### Changed
+- The fontpicker now lists the last X fonts a user picked in the *Favorite fonts* section.
+- The new `nrRecents` option controls how many last-picked fonts are remembered.
+- Added a clear button to the search box.
+
 ## [0.5] - 2020-02-28
 ### Fixed
-- Favorite fonts weren't rendered in their respective font families when lazy loading was enabled
+- Favorite fonts weren't rendered in their respective font families when lazy loading was enabled.
 
 ## [0.4] - 2020-02-27
 ### Changed
 - Added `lazyLoad` option, allowing you to disable lazy loading of fonts.
-- Improved performance on MS Edge.
+- Improved performance on Microsoft Edge.
 
 ## [0.3] - 2020-02-26
 ### Fixed
@@ -20,10 +26,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [0.2] - 2020-02-26
 ### Changed
-- Added `parentElement` configuration option
+- Added `parentElement` configuration option.
 
 ### Fixed
 - Fixed some CSS issues.
 
 ## [0.1] - 2020-02-25
-- Initial release
+- Initial release.
