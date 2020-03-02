@@ -5281,10 +5281,10 @@
 
 							// Save recent
 							if (!!self.options.nrRecents) {
-								var recents = __cookie('recents'),
-									recentFonts = recents ? recents.split(',') : [],
+								var recentFonts = __cookie('recents'),
 									cookieVal = $li.data('font-type') + ':' + fontFamily;
 
+								recentFonts = recentFonts ? recentFonts.split(',') : [];
 								if (recentFonts.indexOf(cookieVal) == -1) {
 									recentFonts.unshift(cookieVal);
 								}
@@ -5646,10 +5646,11 @@
 				 * Construct list of favorited and recently picked fonts
 				 */
 				getFavorites: function() {
-					var favorites = __cookie('favs'),
-						recents = __cookie('recents'),
-						favoriteFonts = favorites ? favorites.split(',') : [],
-						recentFonts = (!!this.options.nrRecents && recents) ? recents.split(',') : [];
+					var favoriteFonts = __cookie('favs'),
+						recentFonts = __cookie('recents');
+
+					favoriteFonts = favoriteFonts ? favoriteFonts.split(',') : [];
+					recentFonts = (!!this.options.nrRecents && recentFonts) ? recentFonts.split(',') : [];
 
 					// Dedupe:
 					var fonts = recentFonts.slice(0);
@@ -5659,17 +5660,17 @@
 						}
 					}
 
-					var frag = document.createDocumentFragment(), $li = null;
+					var frag = document.createDocumentFragment(), $li, tmp;
 
 					for (var f = 0; f < fonts.length; f++) {
-						var tmp = fonts[f].split(':'), fontType = tmp[0], fontFamily = tmp[1], font = this.allFonts[fontType][fontFamily];
+						tmp = fonts[f].split(':'), fontType = tmp[0], fontFamily = tmp[1], font = this.allFonts[fontType][fontFamily];
 						if (!font) { continue; }
 						$li = $('<li>', {'class':'fp-fav', 'data-font-type':fontType, 'data-font-family':fontFamily})
 						.html(fontFamily + (font.category ? ' <small>' + font.category + '</small>' : ''));
 						frag.append($li[0]);
 					}
 
-					if (null !== $li) {
+					if (fonts.length > 0) {
 						frag.prepend($('<li class="fp-fav fp-divider">' + this.dictionary['favFonts'] + '</li>')[0]);
 						this.$results.prepend(frag);
 					}
