@@ -5660,7 +5660,7 @@
 						}
 					}
 
-					var frag = document.createDocumentFragment(), $li, tmp;
+					var frag = document.createDocumentFragment(), $li = null, tmp;
 
 					for (var f = 0; f < fonts.length; f++) {
 						tmp = fonts[f].split(':'), fontType = tmp[0], fontFamily = tmp[1], font = this.allFonts[fontType][fontFamily];
@@ -5670,7 +5670,7 @@
 						frag.append($li[0]);
 					}
 
-					if (fonts.length > 0) {
+					if (null !== $li) {
 						frag.prepend($('<li class="fp-fav fp-divider">' + this.dictionary['favFonts'] + '</li>')[0]);
 						this.$results.prepend(frag);
 					}
