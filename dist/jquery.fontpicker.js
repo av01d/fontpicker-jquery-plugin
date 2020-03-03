@@ -5411,7 +5411,7 @@
 						fontStyle: font.italic ? 'italic' : 'normal',
 						fontWeight: font.weight
 					})
-					.find('span').html(fontSpec).focus();
+					.find('span').html(fontSpec);
 				},
 
 				/**
