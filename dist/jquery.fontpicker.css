@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020 Arjan Haverkamp
  * MIT Licensed
- * @version 0.6 - 2020-03-02
+ * @version 0.7 - 2020-03-03
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -306,5 +306,6 @@
 	font-style: italic;
 }
 .font-picker .fp-variants .fp-pill.italic.checked {
+	background-color: #804;
 	font-style: italic;
 }

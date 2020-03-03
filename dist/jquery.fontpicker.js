@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020 Arjan Haverkamp
  * MIT Licensed
- * @version 0.6 - 2020-03-02
+ * @version 0.7 - 2020-03-03
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -5105,7 +5105,6 @@
 				this.$original = $(original);
 				this.setupHtml();
 				this.bindEvents();
-				this.fontActive = null;
 			}
 
 			Fontpicker.prototype = {
@@ -5161,7 +5160,20 @@
 
 					var $activeLi = $('li.fp-active:visible', this.$results);
 
+					if ((e.keyCode >= 49 && e.keyCode <= 57) || (e.keyCode >= 97 && e.keyCode <= 105)) {
+						// Numbers 1-9
+						stop(e);
+						var fw = 100 * (e.keyCode - (e.keyCode >= 97 ? 96 : 48));
+						$('.fp-pill[data-font-weight='+fw+']', $activeLi).trigger('click');
+						return;
+					}
+
 					switch(e.keyCode) {
+						case 73: // i, italic
+							stop(e);
+							$('.fp-pill.italic:visible', $activeLi).trigger('click');
+							break;
+
 						case 38: // Cursor up
 							stop(e);
 							$prevLi = $activeLi.prevAll(':not(.fp-divider):visible:first');
@@ -5222,11 +5234,9 @@
 						fontFamily = $li.data('font-family'),
 						italic = $li.data('font-italic') || false,
 						weight = $li.data('font-weight') || 400,
+						$lis = $("li[data-font-family='" + fontFamily + "']", this.$results),
 						favorites = __cookie('favs'),
 						favoriteFonts = favorites ? favorites.split(',') : [];
-
-					if (this.fontActive && this.fontActive == fontFamily) { return; }
-					this.fontActive = fontFamily;
 
 					$('li.fp-active', this.$results).removeClass('fp-active').find('.fp-variants,.fp-btns').remove();
 
@@ -5242,13 +5252,13 @@
 
 							var idx = favoriteFonts.indexOf(fontType + ':' + fontFamily);
 							if ($(this).is('.checked')) {
-								// Remove from favs
+								// Remove from favorites
 								if (idx != -1) {
 									favoriteFonts.splice(idx, 1);
 								}
 							}
 							else {
-								// Add to favs
+								// Add to favorites
 								if (-1 == idx) {
 									favoriteFonts.push(fontType + ':' + fontFamily);
 								}
@@ -5312,17 +5322,29 @@
 							let variant = variants[v],
 								fontWeight = +variant.replace(/i$/,'');
 
-							if (v > 0) {
-								$variants.append(' ');
-							}
+							v > 0 && $variants.append(' '); // Separate by space
 
 							$('<span data-font-weight="' + fontWeight + '" class="fp-pill weight' + (weight == fontWeight ? ' checked' : '') + '">')
-							.html(variant)
+							.text(variant)
 							.on('click', function(e) {
 								e.stopPropagation();
+
+								if (variants.indexOf(fontWeight+'i') == -1) {
+									// This font weight does not have an italic variant
+									$('.fp-pill.italic', $li).removeClass('checked').css('display', 'none');
+									italic = false;
+									$li.data('font-italic', italic);
+								}
+								else {
+									// This font weight does have an italic variant
+									$('.fp-pill.italic', $li).css('display', '');
+								}
+
 								$('span.fp-pill.weight', $li).removeClass('checked');
 								$(this).addClass('checked');
-								$li.data('font-weight', fontWeight);
+
+								$lis.data('font-weight', fontWeight); // Set for favorite and normal
+
 								self.showSample($li);
 							})
 							.appendTo($variants);
@@ -5330,11 +5352,16 @@
 
 						if (hasItalic) {
 							$variants.append(' ');
-							$('<span class="fp-pill italic ' + (italic ? ' checked' : '') + '">').html('italic').on('click', function(e) {
+							$('<span class="fp-pill italic ' + (italic ? ' checked' : '') + '">')
+							.css('display', variants.indexOf(weight+'i') == -1 ? 'none' : '')
+							.html('italic')
+							.on('click', function(e) {
 								e.stopPropagation();
 								italic = !italic;
 								$(this).toggleClass('checked');
-								$li.data('font-italic', italic);
+
+								$lis.data('font-italic', italic); // Set for favorite and normal
+
 								self.showSample($li);
 							}).appendTo($variants);
 						}
@@ -5384,7 +5411,7 @@
 						fontStyle: font.italic ? 'italic' : 'normal',
 						fontWeight: font.weight
 					})
-					.find('span').html(fontSpec);
+					.find('span').html(fontSpec).focus();
 				},
 
 				/**
@@ -5442,26 +5469,21 @@
 				 * @param {string} state Either 'hide' or 'show'. When omitted visibility of the modal is toggled.
 				 */
 				toggleModal: function(state) {
-					var self = this;
-
 					if (!state) {
 						state = this.$modal.is(':visible') ? 'hide' : 'show';
 					}
 
 					if ('hide' == state) {
 						// Hide modal
-						$('.fp-fav', this.$results).remove();
+						$('.fp-fav,.fp-variants,.fp-btns').remove();
 
 						this.$modal.css('display','none');
 						$('.fp-modal-backdrop', this.$element).remove();
 						$(this.options.parentElement).removeClass('fp-modal-open');
+						$('span', this.$select).focus();
 					}
 					else {
 						// Show modal
-						this.fontActive = null;
-
-
-
 						$(this.options.parentElement).addClass('fp-modal-open');
 
 						this.$element.append(
@@ -5478,13 +5500,13 @@
 
 						var fontSpec = this.$original.val();
 						if (fontSpec) {
-							var font = self.fontSpecToComponents(fontSpec),
-								$li = $("[data-font-family='" + font.family + "']", this.$results);
-							$li.trigger('mouseenter').trigger('click');
+							var font = this.fontSpecToComponents(fontSpec),
+								$li = $("li[data-font-family='" + font.family + "']", this.$results); // Either 1 or 2 elements
 
-							$('span.fp-pill', $li).removeClass('checked');
-							$("span[data-font-weight='" + font.weight + "']", $li).addClass('checked');
-							font.italic && $('span.italic', self.$results).addClass('checked');
+							$li.data({
+								'font-italic': font.italic,
+								'font-weight': font.weight
+							}).eq(0).trigger('click');
 
 							__scrollIntoViewIfNeeded($li[0]);
 						}
@@ -5660,14 +5682,17 @@
 						}
 					}
 
-					var frag = document.createDocumentFragment(), $li = null, tmp;
+					var frag = document.createDocumentFragment(), $li = null, $orgLi, tmp;
 
 					for (var f = 0; f < fonts.length; f++) {
 						tmp = fonts[f].split(':'), fontType = tmp[0], fontFamily = tmp[1], font = this.allFonts[fontType][fontFamily];
 						if (!font) { continue; }
-						$li = $('<li>', {'class':'fp-fav', 'data-font-type':fontType, 'data-font-family':fontFamily})
-						.html(fontFamily + (font.category ? ' <small>' + font.category + '</small>' : ''));
-						frag.append($li[0]);
+
+						$orgLi = $("[data-font-family='" + fontFamily + "']", this.$results);
+						if ($orgLi.length > 0) {
+							$li = $orgLi.clone().addClass('fp-fav');
+							frag.append($li[0]);
+						}
 					}
 
 					if (null !== $li) {
@@ -5689,6 +5714,14 @@
 						$('<div class="font-picker fp-select">')
 						.on('click', function() {
 							self.toggleModal('show');
+						})
+						.on('keydown', function(e) {
+							// Open the modal with spacebar
+							if (e.keyCode == 32) {
+								e.stopPropagation();
+								e.preventDefault();
+								self.toggleModal('show');
+							}
 						})
 						.append($('<span tabindex="0">' + (fontSpec ? fontSpec : this.dictionary['selectFont']) + '</span>'));
 

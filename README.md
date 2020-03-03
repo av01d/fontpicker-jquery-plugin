@@ -26,10 +26,13 @@ This plugin is the successor of the [Fontselect jQuery plugin](https://github.co
 - Users can favor fonts (stored in a cookie). Favored fonts are listed in the *Favorite fonts* section upon re-opening the picker.
 - Remembers users last picked fonts, listing them on top in the *Favorite fonts* section upon re-opening the picker.
 - Editable sample text (default: *The quick brown fox jumps over the lazy dog*)
-- Keyboard navigation
+- Keyboard navigation to the extend that the component can be fully controlled by keyboard only (mouse/touch is optional):
+  - `Spacebar` opens the modal (when input element is focused).
   - `Up/Down` cursor keys navigate through options.
-  - `Enter` key selects on option, double-clicking does too.
+  - `Enter` selects on option, double-clicking does too.
   - `Esc` closes the picker.
+  - `1-9` selects a font weight in an active item. `1` = font-weight `100` ... `4` = font-weight `400` ... `9` = font-weight `900`.
+  - `i` toggles italics in an active item.
 - Drop-in replacement for a regular input element.
 
 ## Demo
