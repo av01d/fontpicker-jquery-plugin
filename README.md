@@ -150,7 +150,7 @@ In this case, the `input` element will have a value that consists of the chosen 
 - Type: `Number`
 - Default: `3`
 
-Te fontpicker component lists the last X fonts the user picked earlier first, in the *Favorite fonts* section.
+The fontpicker component lists the last X fonts the user picked earlier first, in the *Favorite fonts* section.
 The `nrRecents` option defines how many last-picked fonts to remember. Use `0` to not remember any at all.
 
 ### lazyLoad
@@ -171,10 +171,10 @@ An array of Google fonts to present in the font list. Shows all available Google
 
 ### localFonts
 
-The Google Fonts Repository doesn't always offer enough options. The fontpicker plugin allows you to presentcustom fonts as well.
+The Google Fonts Repository doesn't always offer enough options. The fontpicker plugin allows you to present custom fonts as well.
 The local font files have to be in `.woff` (not `.ttf`) format (for best compatibility with as many browsers as possible), and they should all be put in a single folder, under the document root folder of your site. Something like `/fonts/` makes sense.
 Provide the path to this folder as the `localFontsUrl` configuration parameter.
-You can convert `.otf/.ttf` fonts to `.woff` on [transfonter.org](https://transfonter.org/).
+You can convert `.otf/.ttf` fonts to `.woff` on [transfonter.org](https://transfonter.org/), it's a free service.
 
 - Type: `Object`
 - Default:
@@ -365,6 +365,8 @@ The Fontpicker plugin is used (among others) on the following websites:
 - [PhotoResizer.com](https://www.photoresizer.com/)
 - [PrintScreenshot.com](https://www.printscreenshot.com/)
 - [PhotoCollage.com](https://www.photocollage.com/)
+- [PosterMaker.com](https://www.postermaker.com/)
+- [WordClouds.com](https://www.wordclouds.com/)
 
 [⬆ back to top](#table-of-contents)
 
