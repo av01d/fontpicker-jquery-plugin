@@ -7,7 +7,7 @@ This plugin is the successor of the [Fontselect jQuery plugin](https://github.co
 <img src="https://av01d.github.com/fontpicker-jquery-plugin/img/fontpicker.png" width="200" height="256">
 
 
-[See a live demo here](https://av01d.github.io/fontpicker-jquery-plugin/index.html).
+#[Live Demo](https://av01d.github.io/fontpicker-jquery-plugin/index.html).
 
 ## Table of contents
 - [Features](#features)
