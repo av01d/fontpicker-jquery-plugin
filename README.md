@@ -363,12 +363,12 @@ $('#font').fontpicker().on('change', function() {
 
 The Fontpicker plugin is used (among others) on the following websites:
 
+- [PhotoCollage.com](https://www.photocollage.com/)
 - [PhotoEditor.com](https://www.photoeditor.com/)
 - [PhotoFilters.com](https://www.photofilters.com/)
 - [PhotoResizer.com](https://www.photoresizer.com/)
-- [PrintScreenshot.com](https://www.printscreenshot.com/)
-- [PhotoCollage.com](https://www.photocollage.com/)
 - [PosterMaker.com](https://www.postermaker.com/)
+- [PrintScreenshot.com](https://www.printscreenshot.com/)
 - [WordClouds.com](https://www.wordclouds.com/)
 
 [⬆ back to top](#table-of-contents)
