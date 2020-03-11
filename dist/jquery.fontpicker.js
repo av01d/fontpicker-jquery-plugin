@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020 Arjan Haverkamp
  * MIT Licensed
- * @version 0.7 - 2020-03-03
+ * @version 0.8 - 2020-03-11
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -5501,14 +5501,16 @@
 						var fontSpec = this.$original.val();
 						if (fontSpec) {
 							var font = this.fontSpecToComponents(fontSpec),
-								$li = $("li[data-font-family='" + font.family + "']", this.$results); // Either 1 or 2 elements
+								$li = $("li[data-font-family='" + font.family + "']", this.$results); // Either 0, 1 or 2 elements
 
-							$li.data({
-								'font-italic': font.italic,
-								'font-weight': font.weight
-							}).eq(0).trigger('click');
+							if ($li.length > 0) {
+								$li.data({
+									'font-italic': font.italic,
+									'font-weight': font.weight
+								}).eq(0).trigger('click');
 
-							__scrollIntoViewIfNeeded($li[0]);
+								__scrollIntoViewIfNeeded($li[0]);
+							}
 						}
 						else {
 							this.$results.scrollTop(0);

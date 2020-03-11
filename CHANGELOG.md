@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.8] - 2020-03-11
+### Fixed
+- If the input element had a value of a non-existing font family, a Javascript
+  error would be thrown. This is now fixed.
+
 ## [0.7] - 2020-03-03
 ### Changed
 - Modal can now be opened by spacebar, when element is focused.
