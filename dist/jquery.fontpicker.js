@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020 Arjan Haverkamp
  * MIT Licensed
- * @version 0.8 - 2020-03-11
+ * @version 0.9 - 2020-05-18
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -5029,6 +5029,18 @@
 				'styles': 'stile',
 				'sampleText': 'Vogel Quax zwickt Johnys Pferd Bim.',
 				'sampleTextEditable': 'Beispieltext, editierbar'
+			},
+			'es': {
+				'selectFont': 'Seleccionar fuente',
+				'search': 'Buscar',
+				'allLangs': 'Todos los idiomas',
+				'favFonts': 'Fuentes favoritas',
+				'localFonts': 'Fuentes locales',
+				'googleFonts': 'Fuentes de Google',
+				'select': 'Seleccionar',
+				'styles': 'estilos',
+				'sampleText': 'La cigüeña tocaba cada vez mejor el saxofón y el búho pedía kiwi y queso',
+				'sampleTextEditable': 'Texto de ejemplo, editable'
 			}
 		};
 

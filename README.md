@@ -135,6 +135,7 @@ Fontpicker has one argument, an options object that you can customise.
 - Options:
   - `en`: English
   - `de`: German
+  - `es`: Spanish
   - `nl`: Dutch
 
 The interface language.
