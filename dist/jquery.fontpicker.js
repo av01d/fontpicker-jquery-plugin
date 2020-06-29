@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020 Arjan Haverkamp
  * MIT Licensed
- * @version 0.9 - 2020-05-18
+ * @version 0.9.1 - 2020-06-29
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -101,7 +101,7 @@
 				date.setTime(date.getTime()+(cookieDays*24*60*60*1000));
 				expires = '; expires='+date.toGMTString();
 			}
-			document.cookie = cookieName + '=' + encodeURIComponent(pts.join('||')) + expires + '; path=/';
+			document.cookie = cookieName + '=' + encodeURIComponent(pts.join('||')) + '; path=/; SameSite=Lax' + expires;
 		};
 
 		var __googleFonts = {

@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.9.1] - 2020-06-29
+### Changed
+- Added `SameSite=Lax` to cookie parameters.
+
 ## [0.9] - 2020-05-18
 ### Changed
 - Add translations for Spanish (`lang = 'es'`)
