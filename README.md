@@ -381,6 +381,8 @@ It is not possible to distinguish between local and Google fonts through the `ch
 
 The Fontpicker plugin is used (among others) on the following websites:
 
+- [Chartle.com](https://www.chartle.com/)
+- [MindMapEditor.com](https://www.mindmapeditor.com/)
 - [PhotoCollage.com](https://www.photocollage.com/)
 - [PhotoEditor.com](https://www.photoeditor.com/)
 - [PhotoFilters.com](https://www.photofilters.com/)
