@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.0] - 2020-07-10
+### Changed
+- Added `onSelect` callback. This callback allows for determining whether a local or Google font was selected.
+- Updated Google Fonts list (993 fonts now, was 977).
+
 ## [0.9.1] - 2020-06-29
 ### Changed
 - Added `SameSite=Lax` to cookie parameters.

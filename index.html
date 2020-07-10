@@ -70,14 +70,14 @@
 		console.log('You selected font: ' + fontSpec);
 
 		// Split font into family and weight/style
-		var tmp = fontSpec.split(':'),
+		const tmp = fontSpec.split(':'),
 			family = tmp[0],
 			variant = tmp[1] || '400',
 			weight = parseInt(variant,10),
 			italic = /i$/.test(variant);
 
-		// Set selected font on paragraphs
-		var css = {
+		// Apply selected font to element
+		const css = {
 			fontFamily: "'" + family + "'",
 			fontWeight: weight,
 			fontStyle: italic ? 'italic' : 'normal'
@@ -187,7 +187,7 @@ $('#font2').fontpicker({
 			</script>
 		</div>
 	</div>
-	<!-- Example 2 -->
+	<!-- /Example 2 -->
 
 	<!-- Example 3 -->
 	<h2>Example 3: Custom local fonts, no Google fonts</h2>
@@ -208,7 +208,7 @@ $('#font2').fontpicker({
 &lt;input id="font3" type="text"&gt;
 
 &lt;script&gt;
-var localFonts = {
+const localFonts = {
 	"Arial": {
 		"category": "sans-serif",
 		"variants": "400,400i,600,600i"
@@ -252,7 +252,7 @@ $('#font3').fontpicker({
 		<div>
 			<input id="font3" type="text">
 			<script>
-				var localFonts = {
+				const localFonts = {
 					"Arial": {
 						"category": "sans-serif",
 						"variants": "400,400i,600,600i"
@@ -295,6 +295,88 @@ $('#font3').fontpicker({
 		</div>
 	</div>
 	<!-- /Example 3 -->
+
+	<!-- Example 4 -->
+	<h2>Example 4: Some local fonts, custom Google fonts, onSelect callback</h2>
+	<p id="sample4">
+	The dropdown shows a mix of local, custom and Google fonts. 
+	Instead of <tt>on('change', fn)</tt>, the <tt>onSelect</tt> callback is used to be
+	notified about the font the user picked. The <tt>onSelect</tt> option is called 
+	with a single argument: an object containing <tt>fontType</tt> (<tt>local</tt> or <tt>google</tt>), <tt>fontFamily</tt>,
+	<tt>fontStyle</tt>, <tt>fontWeight</tt> and <tt>fontSpec</tt> members.<br>
+	<tt>obj.fontSpec</tt> contains the same value that <tt>on('change', fn)</tt>
+	would be called with.
+	</p>
+	<div class="example">
+		<pre><code class="html">
+&lt;input id="font4" type="text" value="Cookie"&gt;
+
+&lt;script&gt;
+const localFonts = {
+	"Arial": {
+		"category": "sans-serif",
+		"variants": "400,400i,600,600i"
+	},
+	"Georgia": {
+		"category": "serif",
+		"variants": "400,400i,600,600i"
+	},
+	"Times New Roman": {
+		"category": "serif",
+		"variants": "400,400i,600,600i"
+	},
+	"Verdana": {
+		"category": "sans-serif",
+		"variants": "400,400i,600,600i",
+	},
+
+	"Action Man": {},
+	"Bauer": {
+		"category": "display",
+		"variants": "400,400i,600,600i",
+		"subsets": "latin-ext,latin"
+	},
+	"Bubble": {
+		"category": "display",
+		"variants": "400,400i,600,600i",
+		"subsets": "latin-ext,latin"
+	}
+};
+
+&lt;script&gt;
+$('#font4').fontpicker({
+	localFontsUrl: 'fonts/',
+	localFonts: localFonts,
+	googleFonts: [
+		'Aladin', 'Alex Brush', 'Amita', 'Annie Use Your Telescope', 'Architects Daughter',
+		'Bad Script', 'Bilbo', 'Bonbon', 'Caveat', 'Chilanka', 'Cookie', 'Crafty Girls'
+	],
+	onSelect: function(obj) {
+		console.log('onSelect', obj);
+		applyFont('#sample4', obj.fontSpec);
+	}
+});
+&lt;/script&gt;
+		</code></pre>
+		<div>
+			<input id="font4" type="text" value="Cookie">
+			<script>
+				$('#font4').fontpicker({
+					localFontsUrl: 'fonts/',
+					localFonts: localFonts,
+					googleFonts: [
+						'Roboto', 'Aladin', 'Alex Brush', 'Amita', 'Annie Use Your Telescope', 'Architects Daughter',
+						'Bad Script', 'Bilbo', 'Bonbon', 'Caveat', 'Chilanka', 'Cookie', 'Crafty Girls'
+					],
+					onSelect: function(obj) {
+						console.log('onSelect', obj);
+						applyFont('#sample4', obj.fontSpec);
+					}
+				});
+			</script>
+		</div>
+	</div>
+	<!-- /Example 4 -->
 
 </body>
 </html>

@@ -276,6 +276,21 @@ $('#font').fontpicker({
 });
 ```
 
+### onSelect
+
+- Type: `function`
+- Default: `undefined`
+
+By default, the Fontpicker Plugin calls `change` on the original input element.
+This is sufficient in many cases, but sometimes you also need to know whether a local or Google font was selected. That's where the `onSelect` callback comes in.
+This callback function is called when the user picks a font. The function is called with a single argument: an object, containing the following members:
+
+  - `fontType`: Either `local` or `google`
+  - `fontFamily`: The font family name (string)
+  - `fontStyle`: Either `normal` or `italic`
+  - `fontWeight`: The font weight the user selected (integer). 
+  - `fontSpec`: The complete font spec. For example: `Arial:400` or `Roboto:700i`. 
+
 ### debug
 
 - Type: `Boolean`
@@ -357,6 +372,8 @@ $('#font').fontpicker().on('change', function() {
    $('body').css(css);
 });
 ```
+
+It is not possible to distinguish between local and Google fonts through the `change` event. Take a look at the [`onSelect`](#onSelect) option for an alternative.
 
 [⬆ back to top](#table-of-contents)
 
