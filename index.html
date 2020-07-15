@@ -149,6 +149,8 @@ $('#font1')
 	Users can only select a font-family, font-variant selection is disabled (<tt>variants: false</tt>).
 	<br>
 	This Fontpicker will not remember last picked fonts (<tt>nrRecents: 0</tt>).
+	<br>
+	This Fontpicker allows the user to clear/deselect a chosen font (<tt>showClear: true</tt>).
 	</p>
 	<div class="example">
 		<pre><code class="html">
@@ -158,6 +160,7 @@ $('#font1')
 $('#font2').fontpicker({
 	variants: false,
 	nrRecents: 0,
+	showClear: true,
 	googleFonts: [
 		'Abel', 'Advent Pro', 'Changa', 'Eczar', 'Gloria Hallelujah',
 		'Indie Flower', 'Press Start 2P', 'Slackey', 'Yeon Sung'
@@ -175,6 +178,7 @@ $('#font2').fontpicker({
 				$('#font2').fontpicker({
 					variants: false,
 					nrRecents: 0,
+					showClear: true,
 					googleFonts: [
 						'Abel', 'Advent Pro', 'Changa', 'Eczar', 'Gloria Hallelujah',
 						'Indie Flower', 'Press Start 2P', 'Slackey', 'Yeon Sung'

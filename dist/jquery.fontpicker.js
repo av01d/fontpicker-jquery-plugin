@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020 Arjan Haverkamp
  * MIT Licensed
- * @version 1.0 - 2020-07-10
+ * @version 1.1 - 2020-07-15
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -5373,10 +5373,10 @@
 							}
 
 							self.$select.css({
-								fontFamily: fontFamily,
+								fontFamily: "'" + fontFamily  + "'",
 								fontStyle: italic ? 'italic' : 'normal',
 								fontWeight: weight
-							}).find('span').html(value);
+							}).find('.fp-fontspec').html(value);
 
 							self.$original.val(value).change(); // Update original <input> element
 
@@ -5511,11 +5511,11 @@
 					this.loadFont(__googleFonts[font.family] ? 'google' : 'local', font.family);
 
 					this.$select.css({
-						fontFamily: font.family,
+						fontFamily: "'" + font.family + "'",
 						fontStyle: font.italic ? 'italic' : 'normal',
 						fontWeight: font.weight
 					})
-					.find('span').html(fontSpec);
+					.find('.fp-fontspec').html(fontSpec);
 				},
 
 				/**
@@ -5680,7 +5680,6 @@
 
 					// Clear button
 					$('<div class="fp-clear">')
-					.html('&times;')
 					.on('click', function() {
 						self.$search.val('').focus();
 						self.applyFilter();
@@ -5829,7 +5828,24 @@
 								self.toggleModal('show');
 							}
 						})
-						.append($('<span tabindex="0">' + (fontSpec ? fontSpec : this.dictionary['selectFont']) + '</span>'));
+						.append('<span class="fp-fontspec" tabindex="0">' + (fontSpec ? fontSpec : this.dictionary['selectFont']) + '</span>')
+
+
+					if (!!self.options.showClear) {
+						// Add a clear button
+						this.$select
+						.append($('<span class="fp-clear"></span>')
+						.on('click', function(e) {
+							e.stopPropagation();
+
+							self.$select
+							.removeAttr('style')
+							.find('.fp-fontspec')
+							.html(self.dictionary['selectFont']);;
+
+							self.$original.val(''); // Update original <input> element
+						}));
+					}
 
 					this.$original.after(this.$select);
 

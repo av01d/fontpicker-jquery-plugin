@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020 Arjan Haverkamp
  * MIT Licensed
- * @version 1.0 - 2020-07-10
+ * @version 1.1 - 2020-07-15
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -28,14 +28,14 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	line-height: 28px;
-	padding: 3px 8px 3px 8px;
+	height: 28px;
+	padding: 3px 26px 3px 8px;
 	color: #444;
 	background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23303030' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px;
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 	font-size: 16px;
-	padding-right: 30px;
 }
 
 .fp-row, .fp-btns {
@@ -170,20 +170,20 @@
 }
 
 .font-picker .fp-clear {
+	margin-left: 8px;
+	vertical-align: -2px;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	cursor: pointer;
+	background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3e%3cpath fill='%23aaa' d='M500,10C229.4,10,10,229.4,10,500c0,270.6,219.4,490,490,490c270.6,0,490-219.4,490-490C990,229.4,770.6,10,500,10z M718.5,631.1c24.1,24.1,24.1,63.3,0,87.4s-63.3,24.1-87.4,0L500,587.4L368.9,718.5c-24.1,24.1-63.3,24.1-87.4,0c-24.1-24.1-24.1-63.3,0-87.4L412.6,500L281.5,368.9c-24.1-24.1-24.1-63.3,0-87.4c24.1-24.1,63.3-24.1,87.4,0L500,412.6l131.1-131.1c24.1-24.1,63.3-24.1,87.4,0s24.1,63.3,0,87.4L587.4,500L718.5,631.1z'/%3e%3c/svg%3e") no-repeat right center/16px 16px;
+}
+
+.font-picker .fp-search-wrap .fp-clear {
 	position: absolute;
 	top: 6px;
 	right: 4px;
-	width: 15px;
-	height: 15px;
-	background-color: #c8c8c8;
-	font-size: 16px;
-	line-height: 13px;
-	border-radius: 50%;
-	text-align: center;
-	color: #fff;
-	cursor: pointer;
 }
-
 .font-picker .fp-lang {
 	padding: 4px 2px;
 	background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23303030' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px;

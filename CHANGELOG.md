@@ -4,9 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.1] - 2020-07-15
+### Changed
+- Added `showClear` option. When `true`, the user can clear a selected font. Fixes issue #5.
+- Improved clear buttons (now SVG based and better aligned)
+- Fixed an issue with `Press Start 2P` font: when a user selected this font, it would not render that font in the select box.
+
 ## [1.0] - 2020-07-10
 ### Changed
-- Added `onSelect` callback. This callback allows for determining whether a local or Google font was selected.
+- Added `onSelect` callback. This callback allows for determining whether a local or Google font was selected. Fixes issue #4.
 - Updated Google Fonts list (993 fonts now, was 977).
 
 ## [0.9.1] - 2020-06-29

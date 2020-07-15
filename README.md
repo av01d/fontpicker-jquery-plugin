@@ -77,6 +77,7 @@ $('input.fonts').fontpicker({
    lang: 'en',
    variants: true,
    lazyLoad: true,
+	showClear: true,
    nrRecents: 3,
    googleFonts: 'Alegreya,Boogaloo,Coiny,Dosis,Emilys Candy,Faster One,Galindo'.split(','),
    localFonts: {
@@ -275,6 +276,13 @@ $('#font').fontpicker({
    parentElement: '#myModal'
 });
 ```
+
+### showClear
+
+- Type: `Boolean`
+- Default: `false`
+
+When enabled, users can clear/deselect a selected font. A *clear* icon will be rendered in the font dropdown.
 
 ### onSelect
 
