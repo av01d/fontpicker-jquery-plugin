@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020 Arjan Haverkamp
  * MIT Licensed
- * @version 1.1 - 2020-07-15
+ * @version 1.2 - 2020-11-30
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -45,6 +45,15 @@
 	};
 
 	var googleFontCats = ['serif', 'sans-serif', 'display', 'handwriting', 'monospace'];
+
+	// Object.keys(..).length for all browsers, including IE <= 11:
+	function objLength(obj) {
+		var nr = 0;
+		for (var i in obj) {
+			if (obj.hasOwnProperty(i)) { nr++; }
+		}
+		return nr;
+	}
 
 	$.fn.fontpicker = function(options) {
 
@@ -5423,7 +5432,7 @@
 								continue;
 							}
 
-							let variant = variants[v],
+							var variant = variants[v],
 								fontWeight = +variant.replace(/i$/,'');
 
 							v > 0 && $variants.append(' '); // Separate by space
@@ -5507,6 +5516,16 @@
 				 * @param {string} fontSpec The font specification, f.e: 'Changa:400i' or 'Arial'.
 				 */
 				applyFontToOriginalInput: function(fontSpec) {
+					if ('' === fontSpec) {
+						this.$select
+						.removeAttr('style')
+						.find('.fp-fontspec')
+						.html(this.dictionary['selectFont']);
+
+						this.$original.val('');
+						return;
+					}
+
 					var font = this.fontSpecToComponents(fontSpec);
 					this.loadFont(__googleFonts[font.family] ? 'google' : 'local', font.family);
 
@@ -5723,7 +5742,7 @@
 				 */
 				getFontsList: function() {
 					var self = this,
-						frag = document.createDocumentFragment(), // Use a document fragment to increase performance.
+						$frag = $(document.createDocumentFragment()), // Use a document fragment to increase performance.
 						$li,
 						fontFamily;
 
@@ -5745,28 +5764,28 @@
 						$li = $('<li>', {'data-font-type':fontType, 'data-font-family':fontFamily})
 						.html(fontFamily + small);
 
-						frag.append($li[0]);
+						$frag.append($li[0]);
 					}
 
 					// Local fonts
-					if (Object.keys(this.options.localFonts).length > 0) {
+					if (objLength(this.options.localFonts) > 0) {
 						$li = $('<li class="fp-divider">' + this.dictionary['localFonts'] + '</li>');
-						frag.append($li[0]);
+						$frag.append($li[0]);
 						for (fontFamily in this.options.localFonts) {
 							append('local', fontFamily);
 						}
 					}
 
 					// Google fonts
-					if (Object.keys(this.options.googleFonts).length > 0) {
+					if (objLength(this.options.googleFonts) > 0) {
 						$li = $('<li class="fp-divider">' + this.dictionary['googleFonts'] + '</li>');
-						frag.append($li[0]);
+						$frag.append($li[0]);
 						for (fontFamily in this.options.googleFonts) {
 							append('google', fontFamily);
 						}
 					}
 
-					this.$results = $('<ul>', {'class':'fp-results', tabindex:0}).append(frag);
+					this.$results = $('<ul>', {'class':'fp-results', tabindex:0}).append($frag);
 				},
 
 				/**
@@ -5787,7 +5806,7 @@
 						}
 					}
 
-					var frag = document.createDocumentFragment(), $li = null, $orgLi, tmp;
+					var $frag = $(document.createDocumentFragment()), $li = null, $orgLi, tmp;
 
 					for (var f = 0; f < fonts.length; f++) {
 						tmp = fonts[f].split(':'), fontType = tmp[0], fontFamily = tmp[1], font = this.allFonts[fontType][fontFamily];
@@ -5796,13 +5815,13 @@
 						$orgLi = $("[data-font-family='" + fontFamily + "']", this.$results);
 						if ($orgLi.length > 0) {
 							$li = $orgLi.clone().addClass('fp-fav');
-							frag.append($li[0]);
+							$frag.append($li[0]);
 						}
 					}
 
 					if (null !== $li) {
-						frag.prepend($('<li class="fp-fav fp-divider">' + this.dictionary['favFonts'] + '</li>')[0]);
-						this.$results.prepend(frag);
+						$frag.prepend($('<li class="fp-fav fp-divider">' + this.dictionary['favFonts'] + '</li>')[0]);
+						this.$results.prepend($frag);
 					}
 				},
 
@@ -5828,12 +5847,12 @@
 								self.toggleModal('show');
 							}
 						})
-						.append('<span class="fp-fontspec" tabindex="0">' + (fontSpec ? fontSpec : this.dictionary['selectFont']) + '</span>')
+						.append('<span class="fp-fontspec" tabindex="0">' + (fontSpec ? fontSpec : this.dictionary['selectFont']) + '</span>');
 
 
 					if (!!self.options.showClear) {
 						// Add a clear button
-						this.$select
+						self.$select
 						.append($('<span class="fp-clear"></span>')
 						.on('click', function(e) {
 							e.stopPropagation();
@@ -5843,7 +5862,7 @@
 							.find('.fp-fontspec')
 							.html(self.dictionary['selectFont']);;
 
-							self.$original.val(''); // Update original <input> element
+							self.$original.val('').change(); // Update original <input> element
 						}));
 					}
 

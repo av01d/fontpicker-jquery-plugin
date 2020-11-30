@@ -61,29 +61,42 @@
 		}
 
 	</style>
+	<!-- For Internet Explorer 11: include intersection observer polyfill
+	<script src="https://cdn.jsdelivr.net/npm/intersection-observer/intersection-observer.js"></script>
+	-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="dist/jquery.fontpicker.js"></script>
 	<script>
 
 	function applyFont(element, fontSpec) {
+		if (!fontSpec) {
+			// Font was cleared
+			console.log('You cleared font');
+
+			$(element).css({
+				fontFamily: 'inherit',
+				fontWeight: 'normal',
+				fontStyle: 'normal'
+			});
+			return;
+		}
+
 		console.log('You selected font: ' + fontSpec);
 
 		// Split font into family and weight/style
-		const tmp = fontSpec.split(':'),
+		var tmp = fontSpec.split(':'),
 			family = tmp[0],
 			variant = tmp[1] || '400',
 			weight = parseInt(variant,10),
 			italic = /i$/.test(variant);
 
 		// Apply selected font to element
-		const css = {
+		$(element).css({
 			fontFamily: "'" + family + "'",
 			fontWeight: weight,
 			fontStyle: italic ? 'italic' : 'normal'
-		};
-
-		$(element).css(css);
+		});
 	}
 
 	$(function() {
@@ -126,10 +139,15 @@ $('#font1')
 
 			<button class="btn" type="button" onclick="$('#font1').val('Geo:400').trigger('change')">Select <i>Geo 400</i> font</button>
 			<button class="btn" type="button" onclick="$('#font1').val('Open Sans:800').trigger('change')">Select <i>Opens Sans 800</i> font</button>
+			<br>
 			<button class="btn" type="button" onclick="$('#font1').val('Tahoma').trigger('change')">Select <i>Tahoma</i> font</button>
+
+			<button class="btn" type="button" onclick="$('#font1').val('').trigger('change')">Clear</button>
+
 			<br>
 			API: <button class="btn btn-link" onclick="$('#font1').fontpicker('show')">Show</button> -
 			<button class="btn btn-link" onclick="$('#font1').fontpicker('destroy')">Destroy</button>
+
 
 			<script>
 				$('#font1')
@@ -212,7 +230,7 @@ $('#font2').fontpicker({
 &lt;input id="font3" type="text"&gt;
 
 &lt;script&gt;
-const localFonts = {
+var localFonts = {
 	"Arial": {
 		"category": "sans-serif",
 		"variants": "400,400i,600,600i"
@@ -256,7 +274,7 @@ $('#font3').fontpicker({
 		<div>
 			<input id="font3" type="text">
 			<script>
-				const localFonts = {
+				var localFonts = {
 					"Arial": {
 						"category": "sans-serif",
 						"variants": "400,400i,600,600i"
@@ -316,7 +334,7 @@ $('#font3').fontpicker({
 &lt;input id="font4" type="text" value="Cookie"&gt;
 
 &lt;script&gt;
-const localFonts = {
+var localFonts = {
 	"Arial": {
 		"category": "sans-serif",
 		"variants": "400,400i,600,600i"

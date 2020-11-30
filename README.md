@@ -16,7 +16,8 @@ This plugin is the successor of the [Fontselect jQuery plugin](https://github.co
 - [Options](#options)
 - [Methods](#methods)
 - [Events](#events)
-- [Real World Examples](#real-world-examples)
+- [Browser support](#browser-support)
+- [Real world examples](#real-world-examples)
 - [License](#license)
 
 ## Features
@@ -50,7 +51,7 @@ This is a jQuery plugin, so... make sure you load jQuery before you include this
 
 ```html
 <link href="/path/to/dist/jquery.fontpicker.min.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="/path/to/dist/jquery.fontpicker.min.js"></script>
 ```
 ### Usage
@@ -328,6 +329,11 @@ or
 $('#font').val('Open Sans:800i').triggger('change');
 ```
 
+You can programmatically clear a selected font like this:
+```
+$('#font').val('').trigger('change');
+```
+
 ### show
 
 Show the font picker manually
@@ -348,6 +354,23 @@ Destroy the font picker, revert element back to original.
 ```
 $('#font').fontpicker('destroy');
 ```
+
+[⬆ back to top](#table-of-contents)
+
+## Browser support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Opera (latest)
+- Edge (latest)
+- Internet Explorer 11
+
+Please note: For Internet Explorer, you must include the *intersection-observer* polyfill:
+```html
+<script src="https://cdn.jsdelivr.net/npm/intersection-observer/intersection-observer.js"></script>
+```
+You can include this anywhere in your page, either before or after including `jquery.fontpicker.js`.
 
 [⬆ back to top](#table-of-contents)
 
@@ -385,7 +408,7 @@ It is not possible to distinguish between local and Google fonts through the `ch
 
 [⬆ back to top](#table-of-contents)
 
-## Real World Examples
+## Real world examples
 
 The Fontpicker plugin is used (among others) on the following websites:
 

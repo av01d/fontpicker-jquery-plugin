@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.2] - 2020-11-30
+### Changed
+- Added compatibility with Internet Explorer 11.
+- `$('#font').val('').trigger('change')` clears selected font.
+
 ## [1.1] - 2020-07-15
 ### Changed
 - Added `showClear` option. When `true`, the user can clear a selected font. Fixes issue #5.
