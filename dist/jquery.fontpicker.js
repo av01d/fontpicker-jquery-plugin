@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020 Arjan Haverkamp
  * MIT Licensed
- * @version 1.2 - 2020-11-30
+ * @version 1.3 - 2020-12-08
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -114,7 +114,7 @@
 		};
 
 		var __googleFonts = {
-			// This list was last updated on July 10, 2020
+			// This list was last updated on December 8, 2020
 			"ABeeZee": {
 				"category": "sans-serif",
 				"variants": "400,400i",
@@ -335,6 +335,11 @@
 				"variants": "400",
 				"subsets": "cyrillic,cyrillic-ext,latin,latin-ext,vietnamese"
 			},
+			"Andika New Basic": {
+				"category": "sans-serif",
+				"variants": "400,400i,700,700i",
+				"subsets": "latin,latin-ext,vietnamese"
+			},
 			"Angkor": {
 				"category": "display",
 				"variants": "400",
@@ -408,7 +413,7 @@
 			"Aref Ruqaa": {
 				"category": "serif",
 				"variants": "400,700",
-				"subsets": "arabic,latin"
+				"subsets": "arabic,latin,latin-ext"
 			},
 			"Arima Madurai": {
 				"category": "display",
@@ -417,7 +422,7 @@
 			},
 			"Arimo": {
 				"category": "sans-serif",
-				"variants": "400,400i,700,700i",
+				"variants": "400,500,600,700,400i,500i,600i,700i",
 				"subsets": "cyrillic,cyrillic-ext,greek,greek-ext,hebrew,latin,latin-ext,vietnamese"
 			},
 			"Arizonia": {
@@ -472,8 +477,8 @@
 			},
 			"Assistant": {
 				"category": "sans-serif",
-				"variants": "200,300,400,600,700,800",
-				"subsets": "hebrew,latin"
+				"variants": "200,300,400,500,600,700,800",
+				"subsets": "hebrew,latin,latin-ext"
 			},
 			"Astloch": {
 				"category": "display",
@@ -750,6 +755,26 @@
 				"variants": "100,300,400,500,600,700,800,900",
 				"subsets": "latin,latin-ext,vietnamese"
 			},
+			"Big Shoulders Inline Display": {
+				"category": "display",
+				"variants": "100,300,400,500,600,700,800,900",
+				"subsets": "latin,latin-ext,vietnamese"
+			},
+			"Big Shoulders Inline Text": {
+				"category": "display",
+				"variants": "100,300,400,500,600,700,800,900",
+				"subsets": "latin,latin-ext,vietnamese"
+			},
+			"Big Shoulders Stencil Display": {
+				"category": "display",
+				"variants": "100,300,400,500,600,700,800,900",
+				"subsets": "latin,latin-ext,vietnamese"
+			},
+			"Big Shoulders Stencil Text": {
+				"category": "display",
+				"variants": "100,300,400,500,600,700,800,900",
+				"subsets": "latin,latin-ext,vietnamese"
+			},
 			"Big Shoulders Text": {
 				"category": "display",
 				"variants": "100,300,400,500,600,700,800,900",
@@ -792,8 +817,8 @@
 			},
 			"Bitter": {
 				"category": "serif",
-				"variants": "400,400i,700",
-				"subsets": "latin,latin-ext"
+				"variants": "100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i",
+				"subsets": "cyrillic,cyrillic-ext,latin,latin-ext,vietnamese"
 			},
 			"Black And White Picture": {
 				"category": "sans-serif",
@@ -907,7 +932,7 @@
 			},
 			"Cabin": {
 				"category": "sans-serif",
-				"variants": "400,400i,500,500i,600,600i,700,700i",
+				"variants": "400,500,600,700,400i,500i,600i,700i",
 				"subsets": "latin,latin-ext,vietnamese"
 			},
 			"Cabin Condensed": {
@@ -1010,6 +1035,11 @@
 				"variants": "400",
 				"subsets": "latin"
 			},
+			"Castoro": {
+				"category": "serif",
+				"variants": "400,400i",
+				"subsets": "latin,latin-ext"
+			},
 			"Catamaran": {
 				"category": "sans-serif",
 				"variants": "100,200,300,400,500,600,700,800,900",
@@ -1022,7 +1052,7 @@
 			},
 			"Caveat": {
 				"category": "handwriting",
-				"variants": "400,700",
+				"variants": "400,500,600,700",
 				"subsets": "cyrillic,cyrillic-ext,latin,latin-ext"
 			},
 			"Caveat Brush": {
@@ -1132,7 +1162,7 @@
 			},
 			"Cinzel": {
 				"category": "serif",
-				"variants": "400,700,900",
+				"variants": "400,500,600,700,800,900",
 				"subsets": "latin,latin-ext"
 			},
 			"Cinzel Decorative": {
@@ -1184,6 +1214,11 @@
 				"category": "handwriting",
 				"variants": "400",
 				"subsets": "latin"
+			},
+			"Commissioner": {
+				"category": "sans-serif",
+				"variants": "100,200,300,400,500,600,700,800,900",
+				"subsets": "cyrillic,cyrillic-ext,greek,latin,latin-ext,vietnamese"
 			},
 			"Concert One": {
 				"category": "display",
@@ -1317,7 +1352,7 @@
 			},
 			"Cuprum": {
 				"category": "sans-serif",
-				"variants": "400,400i,700,700i",
+				"variants": "400,500,600,700,400i,500i,600i,700i",
 				"subsets": "cyrillic,cyrillic-ext,latin,latin-ext,vietnamese"
 			},
 			"Cute Font": {
@@ -1457,7 +1492,7 @@
 			},
 			"Domine": {
 				"category": "serif",
-				"variants": "400,700",
+				"variants": "400,500,600,700",
 				"subsets": "latin,latin-ext"
 			},
 			"Donegal One": {
@@ -1594,6 +1629,11 @@
 				"category": "serif",
 				"variants": "400,500,600,700",
 				"subsets": "latin,latin-ext"
+			},
+			"Epilogue": {
+				"category": "sans-serif",
+				"variants": "100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i",
+				"subsets": "latin,latin-ext,vietnamese"
 			},
 			"Erica One": {
 				"category": "display",
@@ -1945,6 +1985,11 @@
 				"variants": "400",
 				"subsets": "latin"
 			},
+			"Goldman": {
+				"category": "display",
+				"variants": "400,700",
+				"subsets": "latin,latin-ext,vietnamese"
+			},
 			"Gorditas": {
 				"category": "display",
 				"variants": "400,700",
@@ -1974,6 +2019,11 @@
 				"category": "handwriting",
 				"variants": "400",
 				"subsets": "latin,latin-ext"
+			},
+			"Grandstander": {
+				"category": "display",
+				"variants": "100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i",
+				"subsets": "latin,latin-ext,vietnamese"
 			},
 			"Gravitas One": {
 				"category": "display",
@@ -2067,8 +2117,8 @@
 			},
 			"Harmattan": {
 				"category": "sans-serif",
-				"variants": "400",
-				"subsets": "arabic,latin"
+				"variants": "400,700",
+				"subsets": "arabic,latin,latin-ext"
 			},
 			"Headland One": {
 				"category": "serif",
@@ -2212,7 +2262,7 @@
 			},
 			"Ibarra Real Nova": {
 				"category": "serif",
-				"variants": "400,400i,600,600i,700,700i",
+				"variants": "400,500,600,700,400i,500i,600i,700i",
 				"subsets": "latin,latin-ext"
 			},
 			"Iceberg": {
@@ -2310,6 +2360,11 @@
 				"variants": "400,700",
 				"subsets": "devanagari,latin,latin-ext"
 			},
+			"JetBrains Mono": {
+				"category": "monospace",
+				"variants": "100,200,300,400,500,600,700,800,100i,200i,300i,400i,500i,600i,700i,800i",
+				"subsets": "cyrillic,cyrillic-ext,greek,latin,latin-ext,vietnamese"
+			},
 			"Jim Nightshade": {
 				"category": "handwriting",
 				"variants": "400",
@@ -2342,7 +2397,7 @@
 			},
 			"Josefin Slab": {
 				"category": "serif",
-				"variants": "100,100i,300,300i,400,400i,600,600i,700,700i",
+				"variants": "100,200,300,400,500,600,700,100i,200i,300i,400i,500i,600i,700i",
 				"subsets": "latin"
 			},
 			"Jost": {
@@ -2427,7 +2482,7 @@
 			},
 			"Karla": {
 				"category": "sans-serif",
-				"variants": "400,400i,700,700i",
+				"variants": "200,300,400,500,600,700,800,200i,300i,400i,500i,600i,700i,800i",
 				"subsets": "latin,latin-ext"
 			},
 			"Karma": {
@@ -2560,6 +2615,11 @@
 				"variants": "200,200i,300,300i,400,400i,500,500i,600,600i,700,700i",
 				"subsets": "latin,latin-ext,thai,vietnamese"
 			},
+			"Kufam": {
+				"category": "display",
+				"variants": "400,500,600,700,800,900,400i,500i,600i,700i,800i,900i",
+				"subsets": "arabic,latin,latin-ext,vietnamese"
+			},
 			"Kulim Park": {
 				"category": "sans-serif",
 				"variants": "200,200i,300,300i,400,400i,600,600i,700,700i",
@@ -2574,6 +2634,11 @@
 				"category": "display",
 				"variants": "400",
 				"subsets": "gujarati,latin,latin-ext"
+			},
+			"Kumbh Sans": {
+				"category": "sans-serif",
+				"variants": "300,400,700",
+				"subsets": "latin,latin-ext"
 			},
 			"Kurale": {
 				"category": "serif",
@@ -2609,6 +2674,11 @@
 				"category": "display",
 				"variants": "400",
 				"subsets": "latin,latin-ext"
+			},
+			"Langar": {
+				"category": "display",
+				"variants": "400",
+				"subsets": "gurmukhi,latin,latin-ext"
 			},
 			"Lateef": {
 				"category": "handwriting",
@@ -2715,6 +2785,11 @@
 				"variants": "400",
 				"subsets": "latin"
 			},
+			"Libre Barcode EAN13 Text": {
+				"category": "display",
+				"variants": "400",
+				"subsets": "latin"
+			},
 			"Libre Baskerville": {
 				"category": "serif",
 				"variants": "400,400i,700",
@@ -2732,8 +2807,8 @@
 			},
 			"Libre Franklin": {
 				"category": "sans-serif",
-				"variants": "100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i",
-				"subsets": "latin,latin-ext"
+				"variants": "100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i",
+				"subsets": "latin,latin-ext,vietnamese"
 			},
 			"Life Savers": {
 				"category": "display",
@@ -2762,8 +2837,8 @@
 			},
 			"Literata": {
 				"category": "serif",
-				"variants": "400,500,600,700,400i,500i,600i,700i",
-				"subsets": "cyrillic,greek,greek-ext,latin,latin-ext,vietnamese"
+				"variants": "200,300,400,500,600,700,800,900,200i,300i,400i,500i,600i,700i,800i,900i",
+				"subsets": "cyrillic,cyrillic-ext,greek,greek-ext,latin,latin-ext,vietnamese"
 			},
 			"Liu Jian Mao Cao": {
 				"category": "handwriting",
@@ -3052,8 +3127,8 @@
 			},
 			"Merriweather Sans": {
 				"category": "sans-serif",
-				"variants": "300,300i,400,400i,700,700i,800,800i",
-				"subsets": "latin,latin-ext"
+				"variants": "300,400,500,600,700,800,300i,400i,500i,600i,700i,800i",
+				"subsets": "cyrillic-ext,latin,latin-ext,vietnamese"
 			},
 			"Metal": {
 				"category": "display",
@@ -3260,7 +3335,7 @@
 				"variants": "200,300,400,500,600,700,800",
 				"subsets": "gujarati,latin,latin-ext"
 			},
-			"Muli": {
+			"Mulish": {
 				"category": "sans-serif",
 				"variants": "200,300,400,500,600,700,800,900,200i,300i,400i,500i,600i,700i,800i,900i",
 				"subsets": "latin,latin-ext,vietnamese"
@@ -3304,6 +3379,11 @@
 				"category": "handwriting",
 				"variants": "400",
 				"subsets": "korean,latin"
+			},
+			"Nerko One": {
+				"category": "handwriting",
+				"variants": "400",
+				"subsets": "latin,latin-ext"
 			},
 			"Neucha": {
 				"category": "handwriting",
@@ -3737,13 +3817,18 @@
 			},
 			"Petrona": {
 				"category": "serif",
-				"variants": "400",
-				"subsets": "latin"
+				"variants": "100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i",
+				"subsets": "latin,latin-ext,vietnamese"
 			},
 			"Philosopher": {
 				"category": "sans-serif",
 				"variants": "400,400i,700,700i",
 				"subsets": "cyrillic,cyrillic-ext,latin,vietnamese"
+			},
+			"Piazzolla": {
+				"category": "serif",
+				"variants": "100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i",
+				"subsets": "cyrillic,cyrillic-ext,greek,greek-ext,latin,latin-ext,vietnamese"
 			},
 			"Piedra": {
 				"category": "display",
@@ -3923,7 +4008,7 @@
 			"Questrial": {
 				"category": "sans-serif",
 				"variants": "400",
-				"subsets": "latin"
+				"subsets": "latin,latin-ext,vietnamese"
 			},
 			"Quicksand": {
 				"category": "sans-serif",
@@ -3962,8 +4047,8 @@
 			},
 			"Raleway": {
 				"category": "sans-serif",
-				"variants": "100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i",
-				"subsets": "latin,latin-ext"
+				"variants": "100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i",
+				"subsets": "cyrillic,cyrillic-ext,latin,latin-ext,vietnamese"
 			},
 			"Raleway Dots": {
 				"category": "display",
@@ -4020,6 +4105,11 @@
 				"variants": "400",
 				"subsets": "latin,telugu"
 			},
+			"Recursive": {
+				"category": "sans-serif",
+				"variants": "300,400,500,600,700,800,900",
+				"subsets": "latin,vietnamese"
+			},
 			"Red Hat Display": {
 				"category": "sans-serif",
 				"variants": "400,400i,500,500i,700,700i,900,900i",
@@ -4029,6 +4119,11 @@
 				"category": "sans-serif",
 				"variants": "400,400i,500,500i,700,700i",
 				"subsets": "latin,latin-ext"
+			},
+			"Red Rose": {
+				"category": "display",
+				"variants": "300,400,500,600,700",
+				"subsets": "latin,latin-ext,vietnamese"
 			},
 			"Redressed": {
 				"category": "handwriting",
@@ -4135,6 +4230,11 @@
 				"variants": "400",
 				"subsets": "latin"
 			},
+			"Rowdies": {
+				"category": "display",
+				"variants": "300,400,700",
+				"subsets": "latin,latin-ext,vietnamese"
+			},
 			"Rozha One": {
 				"category": "serif",
 				"variants": "400",
@@ -4142,8 +4242,8 @@
 			},
 			"Rubik": {
 				"category": "sans-serif",
-				"variants": "300,300i,400,400i,500,500i,700,700i,900,900i",
-				"subsets": "cyrillic,hebrew,latin,latin-ext"
+				"variants": "300,400,500,600,700,800,900,300i,400i,500i,600i,700i,800i,900i",
+				"subsets": "cyrillic,cyrillic-ext,hebrew,latin,latin-ext"
 			},
 			"Rubik Mono One": {
 				"category": "sans-serif",
@@ -4254,6 +4354,11 @@
 				"category": "sans-serif",
 				"variants": "400,400i,700,700i,800,800i,900,900i",
 				"subsets": "latin,latin-ext"
+			},
+			"Sansita Swashed": {
+				"category": "display",
+				"variants": "300,400,500,600,700,800,900",
+				"subsets": "latin,latin-ext,vietnamese"
 			},
 			"Sarabun": {
 				"category": "sans-serif",
@@ -4402,8 +4507,8 @@
 			},
 			"Signika": {
 				"category": "sans-serif",
-				"variants": "300,400,600,700",
-				"subsets": "latin,latin-ext"
+				"variants": "300,400,500,600,700",
+				"subsets": "latin,latin-ext,vietnamese"
 			},
 			"Signika Negative": {
 				"category": "sans-serif",
@@ -4505,6 +4610,11 @@
 				"variants": "400",
 				"subsets": "latin,latin-ext"
 			},
+			"Sora": {
+				"category": "sans-serif",
+				"variants": "100,200,300,400,500,600,700,800",
+				"subsets": "latin,latin-ext"
+			},
 			"Sorts Mill Goudy": {
 				"category": "serif",
 				"variants": "400,400i",
@@ -4522,8 +4632,13 @@
 			},
 			"Source Serif Pro": {
 				"category": "serif",
-				"variants": "400,600,700",
-				"subsets": "latin,latin-ext"
+				"variants": "200,200i,300,300i,400,400i,600,600i,700,700i,900,900i",
+				"subsets": "cyrillic,cyrillic-ext,greek,latin,latin-ext,vietnamese"
+			},
+			"Space Grotesk": {
+				"category": "sans-serif",
+				"variants": "300,400,500,600,700",
+				"subsets": "latin,latin-ext,vietnamese"
 			},
 			"Space Mono": {
 				"category": "monospace",
@@ -4695,6 +4810,21 @@
 				"variants": "400,700",
 				"subsets": "latin"
 			},
+			"Syne": {
+				"category": "sans-serif",
+				"variants": "400,500,600,700,800",
+				"subsets": "latin,latin-ext"
+			},
+			"Syne Mono": {
+				"category": "monospace",
+				"variants": "400",
+				"subsets": "latin,latin-ext"
+			},
+			"Syne Tactile": {
+				"category": "display",
+				"variants": "400",
+				"subsets": "latin,latin-ext"
+			},
 			"Tajawal": {
 				"category": "sans-serif",
 				"variants": "200,300,400,500,700,800,900",
@@ -4744,6 +4874,11 @@
 				"category": "sans-serif",
 				"variants": "400",
 				"subsets": "latin,latin-ext"
+			},
+			"Texturina": {
+				"category": "serif",
+				"variants": "100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i",
+				"subsets": "latin,latin-ext,vietnamese"
 			},
 			"Thasadith": {
 				"category": "sans-serif",
@@ -4799,6 +4934,11 @@
 				"category": "serif",
 				"variants": "100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i",
 				"subsets": "latin,latin-ext,thai,vietnamese"
+			},
+			"Trispace": {
+				"category": "sans-serif",
+				"variants": "100,200,300,400,500,600,700,800",
+				"subsets": "latin,latin-ext,vietnamese"
 			},
 			"Trocchi": {
 				"category": "serif",
@@ -4905,6 +5045,11 @@
 				"variants": "400",
 				"subsets": "hebrew,latin,latin-ext,vietnamese"
 			},
+			"Varta": {
+				"category": "sans-serif",
+				"variants": "300,400,500,600,700",
+				"subsets": "latin,latin-ext,vietnamese"
+			},
 			"Vast Shadow": {
 				"category": "display",
 				"variants": "400",
@@ -5003,6 +5148,11 @@
 			"Work Sans": {
 				"category": "sans-serif",
 				"variants": "100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i",
+				"subsets": "latin,latin-ext,vietnamese"
+			},
+			"Xanh Mono": {
+				"category": "monospace",
+				"variants": "400,400i",
 				"subsets": "latin,latin-ext,vietnamese"
 			},
 			"Yanone Kaffeesatz": {
@@ -5527,7 +5677,7 @@
 					}
 
 					var font = this.fontSpecToComponents(fontSpec);
-					this.loadFont(__googleFonts[font.family] ? 'google' : 'local', font.family);
+					this.loadFont(this.options.googleFonts !== false && __googleFonts[font.family] ? 'google' : 'local', font.family);
 
 					this.$select.css({
 						fontFamily: "'" + font.family + "'",

@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.3] - 2020-12-08
+### Changed
+- Updated Google Fonts list (1023 fonts now, was 993).
+### Fixed
+- Fix for issue #7: when `googleFonts == false`, don't try to load fonts from Google repository.
+
 ## [1.2] - 2020-11-30
 ### Changed
 - Added compatibility with Internet Explorer 11.
