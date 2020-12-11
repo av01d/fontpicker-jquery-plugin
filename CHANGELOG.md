@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.3.1] - 2020-12-11
+### Fixed
+- Version 1.3 introduced issue #8. This release fixes that issue (#8).
+
 ## [1.3] - 2020-12-08
 ### Changed
 - Updated Google Fonts list (1023 fonts now, was 993).

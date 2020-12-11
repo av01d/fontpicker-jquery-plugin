@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020 Arjan Haverkamp
  * MIT Licensed
- * @version 1.3 - 2020-12-08
+ * @version 1.3.1 - 2020-12-11
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -5390,6 +5390,7 @@
 				 * @param {object} $li jQuery list object to extract font spec from (stored in data attributes).
 				 */
 				showSample: function($li) {
+					console.log($li.data());
 					$('.fp-sample', this.$element).css({
 						fontFamily: "'" + $li.data('font-family') + "'",
 						fontStyle: $li.data('font-italic') ? 'italic' : 'normal',
@@ -5582,7 +5583,7 @@
 								continue;
 							}
 
-							var variant = variants[v],
+							let variant = variants[v],
 								fontWeight = +variant.replace(/i$/,'');
 
 							v > 0 && $variants.append(' '); // Separate by space
