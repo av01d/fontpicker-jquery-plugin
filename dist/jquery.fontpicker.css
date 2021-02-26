@@ -2,9 +2,9 @@
  * jQuery.fontpicker - A font picker for Google Web Fonts and local fonts.
  *
  * Made by Arjan Haverkamp, https://www.webgear.nl
- * Copyright 2020 Arjan Haverkamp
+ * Copyright 2020-2021 Arjan Haverkamp
  * MIT Licensed
- * @version 1.3 - 2020-12-08
+ * @version 1.4 - 2021-02-26
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -28,7 +28,6 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	line-height: 28px;
-	height: 28px;
 	padding: 3px 26px 3px 8px;
 	color: #444;
 	background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23303030' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px;

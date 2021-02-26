@@ -2,9 +2,9 @@
  * jQuery.fontpicker - A font picker for Google Web Fonts and local fonts.
  *
  * Made by Arjan Haverkamp, https://www.webgear.nl
- * Copyright 2020 Arjan Haverkamp
+ * Copyright 2020-2021 Arjan Haverkamp
  * MIT Licensed
- * @version 1.3.1 - 2020-12-11
+ * @version 1.4 - 2020-02-26
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -5390,7 +5390,6 @@
 				 * @param {object} $li jQuery list object to extract font spec from (stored in data attributes).
 				 */
 				showSample: function($li) {
-					console.log($li.data());
 					$('.fp-sample', this.$element).css({
 						fontFamily: "'" + $li.data('font-family') + "'",
 						fontStyle: $li.data('font-italic') ? 'italic' : 'normal',
@@ -5631,6 +5630,10 @@
 						}
 
 						$li.append($variants);
+					}
+
+					else if (variants.length == 1 && /i$/.test(variants[0])) {
+						$lis.data('font-italic', true);
 					}
 				},
 
@@ -5893,7 +5896,7 @@
 				 */
 				getFontsList: function() {
 					var self = this,
-						$frag = $(document.createDocumentFragment()), // Use a document fragment to increase performance.
+						$frag = $(document.createDocumentFragment()), // Use a document fragment to increase performance
 						$li,
 						fontFamily;
 
