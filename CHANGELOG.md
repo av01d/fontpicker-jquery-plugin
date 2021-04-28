@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.4.1] - 2021-04-28
+### Changed
+- Add translations for French (`lang = 'fr'`). Translation by Noferi Mickaël.
+
 ## [1.4] - 2021-02-26
 ### Fixed
 - CSS glitch fixed (removed fixed height of select box)

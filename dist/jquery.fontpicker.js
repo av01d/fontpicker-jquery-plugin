@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020-2021 Arjan Haverkamp
  * MIT Licensed
- * @version 1.4 - 2020-02-26
+ * @version 1.4.1 - 2020-04-28
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -5280,6 +5280,18 @@
 				'styles': 'estilos',
 				'sampleText': 'La cigüeña tocaba cada vez mejor el saxofón y el búho pedía kiwi y queso',
 				'sampleTextEditable': 'Texto de ejemplo, editable'
+			},
+			'fr': {
+				'selectFont': 'Selectionner une police',
+				'search': 'Rechercher',
+				'allLangs': 'Toutes les langues',
+				'favFonts': 'Polices favorites',
+				'localFonts': 'Polices locales',
+				'googleFonts': 'Polices Google',
+				'select': 'Selectionner',
+				'styles': 'Styles',
+				'sampleText': 'Le vif renard brun saute par-dessus le chien paresseux.',
+				'sampleTextEditable': 'Texte d\'exemple, éditable'
 			}
 		};
 
