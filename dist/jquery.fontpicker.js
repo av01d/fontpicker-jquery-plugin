@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020-2021 Arjan Haverkamp
  * MIT Licensed
- * @version 1.4.1 - 2020-04-28
+ * @version 1.4.2 - 2021-05-28
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -5390,8 +5390,11 @@
 							break;
 
 						case 'local':
-							this.options.debug && console.log('Loading local font ' + font);
-							$('head').append("<style> @font-face { font-family:'" + font + "'; src:local('" + font + "'), url('" + this.options.localFontsUrl + font + ".woff') format('woff'); } </style>");
+							var hasFontAPI = 'fonts' in document && 'check' in document.fonts;
+							if (!hasFontAPI || !document.fonts.check('11pt ' + font)) {
+								this.options.debug && console.log('Loading local font ' + font);
+								$('head').append("<style> @font-face { font-family:'" + font + "'; src:local('" + font + "'), url('" + this.options.localFontsUrl + font + ".woff') format('woff'); } </style>");
+							}
 							break;
 					}
 				},
