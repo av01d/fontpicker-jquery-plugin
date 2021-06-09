@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [1.4.3] - 2021-06-09
-- Fixed undeclared variable font, fontFamily, fontType. Fixes #12.
+- Fixed undeclared variable font, fontFamily, fontType. Fixes [#12].
 
 ## [1.4.2] - 2021-05-28
 ### Changed
@@ -24,13 +24,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [1.3.1] - 2020-12-11
 ### Fixed
-- Version 1.3 introduced issue #8. This release fixes that issue (#8).
+- Version 1.3 introduced issue #8. This release fixes that issue ([#8]).
 
 ## [1.3] - 2020-12-08
 ### Changed
 - Updated Google Fonts list (1023 fonts now, was 993).
 ### Fixed
-- Fix for issue #7: when `googleFonts == false`, don't try to load fonts from Google repository.
+- Fix for issue [#7]: when `googleFonts == false`, don't try to load fonts from Google repository.
 
 ## [1.2] - 2020-11-30
 ### Changed
@@ -39,13 +39,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [1.1] - 2020-07-15
 ### Changed
-- Added `showClear` option. When `true`, the user can clear a selected font. Fixes issue #5.
+- Added `showClear` option. When `true`, the user can clear a selected font. Fixes issue [#5].
 - Improved clear buttons (now SVG based and better aligned)
 - Fixed an issue with `Press Start 2P` font: when a user selected this font, it would not render that font in the select box.
 
 ## [1.0] - 2020-07-10
 ### Changed
-- Added `onSelect` callback. This callback allows for determining whether a local or Google font was selected. Fixes issue #4.
+- Added `onSelect` callback. This callback allows for determining whether a local or Google font was selected. Fixes issue [#4].
 - Updated Google Fonts list (993 fonts now, was 977).
 
 ## [0.9.1] - 2020-06-29
