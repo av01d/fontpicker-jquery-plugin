@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020-2021 Arjan Haverkamp
  * MIT Licensed
- * @version 1.4.2 - 2021-05-28
+ * @version 1.4.3 - 2021-06-09
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -5975,7 +5975,7 @@
 						}
 					}
 
-					var $frag = $(document.createDocumentFragment()), $li = null, $orgLi, tmp;
+					var $frag = $(document.createDocumentFragment()), $li = null, $orgLi, tmp, fontType, fontFamily, font;
 
 					for (var f = 0; f < fonts.length; f++) {
 						tmp = fonts[f].split(':'), fontType = tmp[0], fontFamily = tmp[1], font = this.allFonts[fontType][fontFamily];

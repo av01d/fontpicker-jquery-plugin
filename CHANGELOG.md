@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.4.3] - 2021-06-09
+- Fixed undeclared variable font, fontFamily, fontType. Fixes #12.
+
 ## [1.4.2] - 2021-05-28
 ### Changed
 - Only load local fonts if they're not already available.
