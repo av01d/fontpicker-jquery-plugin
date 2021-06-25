@@ -18,6 +18,7 @@ This plugin is the successor of the [Fontselect jQuery plugin](https://github.co
 - [Events](#events)
 - [Browser support](#browser-support)
 - [Real world examples](#real-world-examples)
+- [Donations](#donations)
 - [License](#license)
 
 ## Features
@@ -421,6 +422,14 @@ The Fontpicker plugin is used (among others) on the following websites:
 - [PosterMaker.com](https://www.postermaker.com/)
 - [PrintScreenshot.com](https://www.printscreenshot.com/)
 - [WordClouds.com](https://www.wordclouds.com/)
+
+[⬆ back to top](#table-of-contents)
+
+## Donations
+
+If you like what I've made here, you can sponsor me with a donation. Thank you so much!
+
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VUVAC8EA3X468)
 
 [⬆ back to top](#table-of-contents)
 
