@@ -5917,6 +5917,7 @@
 
 					function append(fontType, fontFamily) {
 						var font = self.allFonts[fontType][fontFamily], small = '';
+						if (!font) { return; } // Continue if font does not exist
 
 						if (font.category || font.variants) {
 							var items = [];
