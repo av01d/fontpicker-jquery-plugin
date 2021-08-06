@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020-2021 Arjan Haverkamp
  * MIT Licensed
- * @version 1.4.3 - 2021-06-09
+ * @version 1.4.4 - 2021-08-06
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 

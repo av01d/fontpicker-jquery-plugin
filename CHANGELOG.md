@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.4.4] - 2021-08-06
+- If `googleFonts` contains a non existing font, silently ignore the font.
+
 ## [1.4.3] - 2021-06-09
 - Fixed undeclared variable font, fontFamily, fontType. Fixes [#12](https://github.com/av01d/fontpicker-jquery-plugin/issues/12).
 
