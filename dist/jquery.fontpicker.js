@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020-2021 Arjan Haverkamp
  * MIT Licensed
- * @version 1.4.4 - 2021-08-06
+ * @version 1.4.5 - 2021-09-28
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -5384,15 +5384,19 @@
 
 					switch(type) {
 						case 'google':
-							var url = 'https://fonts.googleapis.com/css?family=' + font.replace(/ /g,'+') + ':' + this.options.googleFonts[font].variants + '&display=swap';
 							this.options.debug && console.log('Loading Google font ' + font + ' from ' + url);
+							var url = 'https://fonts.googleapis.com/css?family=' + font.replace(/ /g,'+') + ':' + this.options.googleFonts[font].variants + '&display=swap';
 							$('head').append($('<link>', {href:url, rel:'stylesheet', type:'text/css'}));
 							break;
 
 						case 'local':
-							var hasFontAPI = 'fonts' in document && 'check' in document.fonts;
-							if (!hasFontAPI || !document.fonts.check('11pt ' + font)) {
-								this.options.debug && console.log('Loading local font ' + font);
+							this.options.debug && console.log('Loading local font ' + font);
+							if ('FontFace' in window) {
+								new FontFace(font, "url('" + this.options.localFontsUrl + font + ".woff')").load().then(function(font) {
+									document.fonts.add(font);
+								});
+							}
+							else {
 								$('head').append("<style> @font-face { font-family:'" + font + "'; src:local('" + font + "'), url('" + this.options.localFontsUrl + font + ".woff') format('woff'); } </style>");
 							}
 							break;
