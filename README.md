@@ -188,9 +188,9 @@ An array of Google fonts to present in the font list. Shows all available Google
 ### localFonts
 
 The Google Fonts Repository doesn't always offer enough options. The fontpicker plugin allows you to present custom fonts as well.
-The local font files have to be in `.woff` (not `.ttf`) format (for best compatibility with as many browsers as possible), and they should all be put in a single folder, under the document root folder of your site. Something like `/fonts/` makes sense.
+The local font files have to be in `.ttf`, `.woff`, `woff2` or `otf` format, and they should all be put in a single folder, under the document root folder of your site. Something like `/fonts/` makes sense.
 Provide the path to this folder as the `localFontsUrl` configuration parameter.
-You can convert `.otf/.ttf` fonts to `.woff` on [transfonter.org](https://transfonter.org/), it's a free service.
+Use the `localFontsType` to indicate what font format you use.
 
 - Type: `Object`
 - Default:
@@ -225,9 +225,9 @@ You can convert `.otf/.ttf` fonts to `.woff` on [transfonter.org](https://transf
    }
    ```
 
-The key of an item is the *font family*. As mentioned above, make sure that custom (non-system) fonts are available on your webserver, as `.woff` files. Make sure the name of the font files matches the *font family* name used here:
-`"Action Man"` -> `/fonts/Action Man.woff`
-`"Bubble"` -> `/fonts/Bubble.woff`
+The key of an item is the *font family*. As mentioned above, make sure that custom (non-system) fonts are available on your webserver, as `.woff`, `.ttf`, `.woff2` or `.otf` files (`.ttf` or `.woff` are most widely supported across browsers). Make sure the name of the font files matches the *font family* name used here:
+`"Action Man"` -> `/fonts/Action Man.[woff|ttf]`
+`"Bubble"` -> `/fonts/Bubble.[woff|ttf]`
 
 The value of an item is an object, containing up to 3 properties:
 - `category`: A `String`, containing one of `serif, sans-serif, display, handwriting, monospace`. This allows users to filter fonts by category. If omitted, the font is listed under the `other` category.
@@ -273,6 +273,13 @@ Example:
 - Default: `/fonts/`
 
 Path to folder where local fonts are stored (in .woff format). Default: `/fonts/`. *Make sure to end with a slash!*
+
+### localFontsType
+
+- Type: `String`
+- Default: `woff`
+
+The type of local fonts you have. Either `woff`, `ttf`, `woff2` or `otf`.
 
 ### parentElement
 

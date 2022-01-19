@@ -232,8 +232,9 @@ $('#font2').fontpicker({
 	The dropdown shows a list of system fonts (Arial, Georgia, Times New Roman and Verdana), as well as three custom fonts (Action Man, Bauer, Bubble).<br>
 	Google fonts are disabled (<tt>googleFonts: false</tt>).<br>
 
-	The local font files have to be in Woff format (for best compatibility with as many	browsers as possible), and they should all be put in a single folder, under the
-	document root folder of your site. Something like <tt>/fonts</tt> makes sense. Provide the path to this folder as the <tt>localFontsUrl</tt> configuration parameter.
+	The local font files have to be in TTF, Woff, Woff2 or OTF format, and they should all be put in a single folder, under the
+	document root folder of your site. Something like <tt>/fonts</tt> makes sense. Provide the path to this folder as the <tt>localFontsUrl</tt> configuration parameter.<br>
+	All fonts should be in the same format (woff, woff2, ttf, otf). Define your format via the <tt>localFontsType</tt> parameter.
 	<br>
 	In this example, there are 3 files in the <tt>htdocs/fonts</tt> folder: <tt>Action Man.woff, Bauer.woff, Bubble.woff</tt>.
 	<br>
@@ -279,6 +280,7 @@ var localFonts = {
 $('#font3').fontpicker({
 	localFontsUrl: 'fonts/', // End with a slash!
 	localFonts: localFonts,
+	localFontsType: 'woff', // Either 'ttf', 'woff', 'woff2' or 'otf'
 	googleFonts: false
 })
 .on('change', function() {
@@ -322,8 +324,9 @@ $('#font3').fontpicker({
 
 				$('#font3').fontpicker({
 					localFontsUrl: 'fonts/', // End with a slash!
+					localFontsType: 'woff',
 					localFonts: localFonts,
-					googleFonts: false
+					googleFonts: false,
 				})
 				.on('change', function() {
 					applyFont('#sample3', this.value);
