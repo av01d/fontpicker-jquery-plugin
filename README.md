@@ -59,9 +59,9 @@ With a copy on your server:
 
 You can also load it from jsDelivr:
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/av01d/fontpicker-jquery-plugin@1.4.4/dist/jquery.fontpicker.min.css" integrity="sha256-urFh3EMgi9s3j3w+TsAP1TfUQiE0yUZmmLX7JRyvjqE=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/av01d/fontpicker-jquery-plugin@1.5/dist/jquery.fontpicker.min.css" integrity="sha256-urFh3EMgi9s3j3w+TsAP1TfUQiE0yUZmmLX7JRyvjqE=" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/gh/av01d/fontpicker-jquery-plugin@1.4.4/dist/jquery.fontpicker.min.js" integrity="sha256-+UHNQaPSVoGbGqqvjreSLWm7Zm6k+hQh2lbfwATpQEY=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/av01d/fontpicker-jquery-plugin@1.5/dist/jquery.fontpicker.min.js" integrity="sha256-+UHNQaPSVoGbGqqvjreSLWm7Zm6k+hQh2lbfwATpQEY=" crossorigin="anonymous"></script>
 ```
 
 ### Usage
