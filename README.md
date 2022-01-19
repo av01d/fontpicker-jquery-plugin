@@ -25,7 +25,7 @@ This plugin is the successor of the [Fontselect jQuery plugin](https://github.co
 
 - Quickly preview and select any Google font family.
 - Lazy loading of fonts as they come into view (uses [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API))
-- Optionally present system and local fonts (`.woff`) as well.
+- Optionally present system and local fonts (`.woff`, `.ttf`) as well.
 - Optionally choose font weight and font style.
 - Find fonts by name, language and category (serif, sans-serif, display, handwriting, monospace).
 - Users can favor fonts (stored in a cookie). Favored fonts are listed in the *Favorite fonts* section upon re-opening the picker.
