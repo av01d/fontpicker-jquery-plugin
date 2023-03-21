@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.6] - 2023-03-21
+### Changed
+- Updated Google Fonts list: now includes some Arabic fonts as well
+
 ## [1.5] - 2022-01-19
 ### Changed
 - Added support for TTF, WOFF2 and OTF fonts (configuration parameter `localFontsType`)
