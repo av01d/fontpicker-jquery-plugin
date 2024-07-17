@@ -2,9 +2,9 @@
  * jQuery.fontpicker - A font picker for Google Web Fonts and local fonts.
  *
  * Made by Arjan Haverkamp, https://www.webgear.nl
- * Copyright 2020-2023 Arjan Haverkamp
+ * Copyright 2020-2024 Arjan Haverkamp
  * MIT Licensed
- * @version 1.6 - 2023-03-21
+ * @version 1.7 - 2024-07-17
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
