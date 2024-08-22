@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020-2024 Arjan Haverkamp
  * MIT Licensed
- * @version 1.7 - 2024-07-17
+ * @version 1.8 - 2024-08-22
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -114,7 +114,7 @@
 		};
 
 		var __googleFonts = {
-			// This list was last updated on July 17, 2024
+			// This list was last updated on August 21, 2024
 			"ABeeZee": {
 				"category": "sans-serif",
 				"variants": "400,400i",
@@ -348,7 +348,7 @@
 			"Almarai": {
 				"category": "sans-serif",
 				"variants": "300,400,700,800",
-				"subsets": "arabic"
+				"subsets": "arabic,latin"
 			},
 			"Almendra": {
 				"category": "serif",
@@ -548,7 +548,7 @@
 			"Anuphan": {
 				"category": "sans-serif",
 				"variants": "100,200,300,400,500,600,700",
-				"subsets": "cyrillic-ext,latin,latin-ext,thai,vietnamese"
+				"subsets": "latin,latin-ext,thai,vietnamese"
 			},
 			"Anybody": {
 				"category": "display",
@@ -1233,7 +1233,7 @@
 			"Bricolage Grotesque": {
 				"category": "sans-serif",
 				"variants": "200,300,400,500,600,700,800",
-				"subsets": "cyrillic-ext,latin,latin-ext,vietnamese"
+				"subsets": "latin,latin-ext,vietnamese"
 			},
 			"Bruno Ace": {
 				"category": "display",
@@ -1300,6 +1300,11 @@
 				"variants": "400",
 				"subsets": "latin,latin-ext,vietnamese"
 			},
+			"Bungee Tint": {
+				"category": "display",
+				"variants": "400",
+				"subsets": "latin,latin-ext,vietnamese"
+			},
 			"Butcherman": {
 				"category": "display",
 				"variants": "400",
@@ -1328,7 +1333,7 @@
 			"Cactus Classical Serif": {
 				"category": "serif",
 				"variants": "400",
-				"subsets": "chinese-traditional,cyrillic,latin,latin-ext,vietnamese"
+				"subsets": "chinese-hongkong,cyrillic,latin,latin-ext,vietnamese"
 			},
 			"Caesar Dressing": {
 				"category": "display",
@@ -1593,7 +1598,7 @@
 			"Chocolate Classical Sans": {
 				"category": "sans-serif",
 				"variants": "400",
-				"subsets": "chinese-traditional,cyrillic,latin,latin-ext,vietnamese"
+				"subsets": "chinese-hongkong,cyrillic,latin,latin-ext,vietnamese"
 			},
 			"Chokokutai": {
 				"category": "display",
@@ -2069,6 +2074,11 @@
 				"category": "serif",
 				"variants": "400,500,600,700,800",
 				"subsets": "devanagari,greek,greek-ext,latin,latin-ext"
+			},
+			"Edu AU VIC WA NT Hand": {
+				"category": "handwriting",
+				"variants": "400,500,600,700",
+				"subsets": "latin,latin-ext"
 			},
 			"Edu NSW ACT Foundation": {
 				"category": "handwriting",
@@ -3177,7 +3187,7 @@
 			},
 			"Inter": {
 				"category": "sans-serif",
-				"variants": "100,200,300,400,500,600,700,800,900",
+				"variants": "100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i",
 				"subsets": "cyrillic,cyrillic-ext,greek,greek-ext,latin,latin-ext,vietnamese"
 			},
 			"Inter Tight": {
@@ -3455,6 +3465,11 @@
 				"variants": "100,200,300,400,500,600,700",
 				"subsets": "latin,latin-ext,math"
 			},
+			"Kalnia Glaze": {
+				"category": "display",
+				"variants": "100,200,300,400,500,600,700",
+				"subsets": "latin,latin-ext"
+			},
 			"Kameron": {
 				"category": "serif",
 				"variants": "400,500,600,700",
@@ -3683,12 +3698,12 @@
 			"LXGW WenKai Mono TC": {
 				"category": "monospace",
 				"variants": "300,400,700",
-				"subsets": "chinese-traditional,cyrillic,cyrillic-ext,greek,greek-ext,latin,latin-ext,lisu,vietnamese"
+				"subsets": "chinese-hongkong,cyrillic,cyrillic-ext,greek,greek-ext,latin,latin-ext,lisu,vietnamese"
 			},
 			"LXGW WenKai TC": {
 				"category": "handwriting",
 				"variants": "300,400,700",
-				"subsets": "chinese-traditional,cyrillic,cyrillic-ext,greek,greek-ext,latin,latin-ext,lisu,vietnamese"
+				"subsets": "chinese-hongkong,cyrillic,cyrillic-ext,greek,greek-ext,latin,latin-ext,lisu,vietnamese"
 			},
 			"La Belle Aurore": {
 				"category": "handwriting",
@@ -4230,6 +4245,11 @@
 				"variants": "400",
 				"subsets": "latin,latin-ext"
 			},
+			"Matemasie": {
+				"category": "sans-serif",
+				"variants": "400",
+				"subsets": "latin,latin-ext"
+			},
 			"Material Icons": {
 				"category": "monospace",
 				"variants": "400",
@@ -4439,6 +4459,11 @@
 				"category": "display",
 				"variants": "400",
 				"subsets": "latin,latin-ext"
+			},
+			"Moderustic": {
+				"category": "sans-serif",
+				"variants": "300,400,500,600,700,800",
+				"subsets": "cyrillic,cyrillic-ext,greek,latin,latin-ext"
 			},
 			"Mogra": {
 				"category": "display",
@@ -4703,6 +4728,11 @@
 			"Neuton": {
 				"category": "serif",
 				"variants": "200,300,400,400i,700,800",
+				"subsets": "latin,latin-ext"
+			},
+			"New Amsterdam": {
+				"category": "sans-serif",
+				"variants": "400",
 				"subsets": "latin,latin-ext"
 			},
 			"New Rocker": {
@@ -6193,7 +6223,7 @@
 			"Philosopher": {
 				"category": "sans-serif",
 				"variants": "400,400i,700,700i",
-				"subsets": "cyrillic,cyrillic-ext,latin,vietnamese"
+				"subsets": "cyrillic,cyrillic-ext,latin,latin-ext,vietnamese"
 			},
 			"Phudu": {
 				"category": "display",
@@ -7299,6 +7329,11 @@
 				"category": "display",
 				"variants": "400",
 				"subsets": "latin,latin-ext"
+			},
+			"Sankofa Display": {
+				"category": "sans-serif",
+				"variants": "400",
+				"subsets": "latin,latin-ext,vietnamese"
 			},
 			"Sansita": {
 				"category": "sans-serif",
@@ -8610,6 +8645,11 @@
 				"variants": "400",
 				"subsets": "chinese-simplified,latin"
 			},
+			"Zain": {
+				"category": "sans-serif",
+				"variants": "200,300,400,700,800,900",
+				"subsets": "arabic,latin"
+			},
 			"Zen Antique": {
 				"category": "serif",
 				"variants": "400",
@@ -8680,7 +8720,7 @@
 				"variants": "400,700",
 				"subsets": "latin,latin-ext"
 			}
-		};
+		}
 
 		var dictionaries = {
 			'en': {
