@@ -8798,31 +8798,31 @@
 			localFonts: {// Default: web safe fonts available on all platforms
 				"Arial": {
 					"category": "sans-serif",
-					"variants": "400,400i,600,600i"
+					"variants": "400,400i,700,700i"
 				},
 				"Courier New": {
 					"category": "monospace",
-					"variants": "400,400i,600,600i"
+					"variants": "400,400i,700,700i"
 				},
 				"Georgia": {
 					"category": "serif",
-					"variants": "400,400i,600,600i"
+					"variants": "400,400i,700,700i"
 				},
 				"Tahoma": {
 					"category": "sans-serif",
-					"variants": "400,400i,600,600i"
+					"variants": "400,400i,700,700i"
 				},
 				"Times New Roman": {
 					"category": "serif",
-					"variants": "400,400i,600,600i"
+					"variants": "400,400i,700,700i"
 				},
 				"Trebuchet MS": {
 					"category": "sans-serif",
-					"variants": "400,400i,600,600i"
+					"variants": "400,400i,700,700i"
 				},
 				"Verdana": {
 					"category": "sans-serif",
-					"variants": "400,400i,600,600i",
+					"variants": "400,400i,700,700i",
 				}
 			}
 		}; // End settings
