@@ -4,7 +4,7 @@
  * Made by Arjan Haverkamp, https://www.webgear.nl
  * Copyright 2020-2024 Arjan Haverkamp
  * MIT Licensed
- * @version 1.8 - 2024-08-22
+ * @version 1.9 - 2024-09-11
  * @url https://github.com/av01d/fontpicker-jquery-plugin
  */
 
@@ -8881,6 +8881,8 @@
 							break;
 
 						case 'local':
+							if (/^(Arial|Courier New|Georgia|Tahoma|Times New Roman|Trebuchet MS|Verdana)$/i.test(font)) { break }
+							
 							this.options.debug && console.log('Loading local font ' + font);
 							if ('FontFace' in window) {
 								new FontFace(font, "url('" + this.options.localFontsUrl + font + "." + this.options.localFontsType +"')").load().then(function(font) {
@@ -9330,12 +9332,12 @@
 					for (var c in this.allFonts) {
 						for (var f in this.allFonts[c]) {
 							var item = this.allFonts[c][f],
-								langs = item.subsets ? item.subsets.split(',') : [],
+								langs = (item.subsets && item.subsets != '*') ? item.subsets.split(',') : [],
 								$li = $("li[data-font-family='" + f + "']", this.$results),
 								cat = item.category || 'other';
 
 							if ( ('' == lang || langs.indexOf(lang) != -1) &&
-								 (cats.indexOf(cat) != -1) &&
+								 ('*' == cat || cats.indexOf(cat) != -1) &&
 								 ('' == searchTerm || f.toLowerCase().indexOf(searchTerm.toLowerCase()) != -1) ) {
 								$li.show();
 							}
@@ -9415,7 +9417,7 @@
 						var font = self.allFonts[fontType][fontFamily], small = '';
 						if (!font) { return; } // Continue if font does not exist
 
-						if (font.category || font.variants) {
+						if ((font.category && font.category != '*') || font.variants) {
 							var items = [];
 							if (font.category) { items.push(font.category); }
 							if (self.options.variants && font.variants) {

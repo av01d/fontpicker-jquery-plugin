@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/github.min.css">
 	<link rel="stylesheet" type="text/css" href="dist/jquery.fontpicker.css">
 	<style>
+
 		body {
 			background-color: #fff;
 			color: #000;
@@ -323,6 +324,7 @@ $('#font3').fontpicker({
 				};
 
 				$('#font3').fontpicker({
+					debug: true,
 					localFontsUrl: 'fonts/', // End with a slash!
 					localFontsType: 'woff',
 					localFonts: localFonts,
@@ -401,6 +403,38 @@ $('#font4').fontpicker({
 		<div>
 			<input id="font4" type="text" value="Cookie">
 			<script>
+
+				var localFonts = {
+					"Arial": {
+						"category": "sans-serif",
+						"variants": "400,400i,600,600i"
+					},
+					"Georgia": {
+						"category": "serif",
+						"variants": "400,400i,600,600i"
+					},
+					"Times New Roman": {
+						"category": "serif",
+						"variants": "400,400i,600,600i"
+					},
+					"Verdana": {
+						"category": "sans-serif",
+						"variants": "400,400i,600,600i",
+					},
+
+					"Action Man": {},
+					"Bauer": {
+						"category": "display",
+						"variants": "400,400i,600,600i",
+						"subsets": "latin-ext,latin"
+					},
+					"Bubble": {
+						"category": "display",
+						"variants": "400,400i,600,600i",
+						"subsets": "latin-ext,latin"
+					}
+				};
+
 				$('#font4').fontpicker({
 					localFontsUrl: 'fonts/',
 					localFonts: localFonts,
