@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.10] - 2024-11-07
+### Changed
+- Updated Google Fonts list
+
 ## [1.9] - 2024-09-11
 ### Changed
 - Allow font's 'category' to be '*', which disables category-filtering for that font
