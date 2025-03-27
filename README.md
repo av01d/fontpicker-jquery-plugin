@@ -1,3 +1,9 @@
+# Deprecation notice
+
+This FontPicker is deprecated and no longer maintained as of April 1st, 2025. Don't worry though, we've created a very capable replacement.
+[JSFontPicker](https://www.jsfontpicker.com). This new plugin does no longer depend on jQuery (it's vanilla JS) and is much more modern.
+Please make the switch, you won't regret it!
+
 # Fontpicker jQuery Plugin
 
 A component to quickly choose fonts from Google Web Fonts, custom fonts you (the web developer) provide, as well as system fonts.
@@ -5,7 +11,6 @@ Lets users easily select and preview a font from Google's large range of free fo
 This plugin is the successor of the [Fontselect jQuery plugin](https://github.com/av01d/fontselect-jquery-plugin).
 
 <img src="https://av01d.github.io/fontpicker-jquery-plugin/img/fontpicker.png" width="200" height="256">
-
 
 ## [Live Demo](https://av01d.github.io/fontpicker-jquery-plugin/index.html)
 
