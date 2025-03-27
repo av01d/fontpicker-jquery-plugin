@@ -1,8 +1,8 @@
 # Deprecation notice
 
-This FontPicker is deprecated and no longer maintained as of April 1st, 2025. Don't worry though, we've created a very capable replacement:
+*This FontPicker is deprecated and no longer maintained as of April 1st, 2025. Don't worry though, we've created a very capable replacement:
 [JSFontPicker](https://www.jsfontpicker.com). This new plugin does no longer depend on jQuery (it's vanilla JS) and is much more modern.
-Please make the switch, you won't regret it!
+Please make the switch, you won't regret it!*
 
 # Fontpicker jQuery Plugin
 
